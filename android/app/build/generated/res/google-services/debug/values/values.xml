@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">45878387137-aa5h99fi9rqp8613a81958rm4kbeii3b.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://phoneauth-medchat.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">45878387137</string>
+    <string name="google_api_key" translatable="false">AIzaSyAesJuvzYq0GQ3XNK0vFA42FTOI0-nTDdI</string>
+    <string name="google_app_id" translatable="false">1:45878387137:android:9f4fb5a332470042454f40</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAesJuvzYq0GQ3XNK0vFA42FTOI0-nTDdI</string>
+    <string name="google_storage_bucket" translatable="false">phoneauth-medchat.appspot.com</string>
+    <string name="project_id" translatable="false">phoneauth-medchat</string>
+</resources>
