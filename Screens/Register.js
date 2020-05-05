@@ -203,7 +203,9 @@ function Register({ navigation }){
                                 setImageUploading(false)
                                 storage.ref('images').child(imgName).getDownloadURL().then(url=>{
                                     console.log("File Available at: ", url);
-                                    setPic(url)
+                                    setPic(prevPic => {
+                                        return {...prevPic, url: url}
+                                    })
                             })
                         })
                     })
@@ -222,7 +224,7 @@ function Register({ navigation }){
             <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
                     <Text style={{color:"#8155BA", fontSize:20, fontStyle:'normal'}}>Welcome to MedChat </Text>
                     <View style={{ justifyContent: 'center', alignItems: 'center'}}>
-                        {imageUploading? 
+                        {imageUploading?
                             <Circle 
                                 size={100} 
                                 progress={progress}
