@@ -52,18 +52,21 @@ function Main({ navigation }) {
   }
   
   return (
-    <ScrollView>
+    <ScrollView >
       <View style={styles.initial}>
-        <View style={styles.buttonview}>{Channels.map((item, index)=>(
-          <Button
-            title={item+' ->  '+count[index]+'JOINED STATE->'+user_State[index]}  
-            onPress ={()=>handle_database(item ,index)}
+        {Channels.map((item, index)=>(
+          // U just needed to move this <VIEW> inside the map function. Warna everything will be considered a single button
+          <View style={styles.buttonview}>
+            <Button title={item+' ->  '+count[index]+'JOINED STATE->'+user_State[index]}  onPress ={()=>handle_database(item ,index)}
             color="#8155BA"
             marginTop='10'
-          />
+            />
+          </View>
         ))}
+        
+        <View style = {styles.buttonview}>
+          <Button title="Sign Out" onPress={()=>navigation.navigate("Login")} color="#8155BA" />
         </View>
-        <Button title="Sign Out" onPress={()=>navigation.navigate("Login")} />
       </View>
   </ScrollView>
   );
@@ -72,13 +75,17 @@ const styles = StyleSheet.create({
   
   initial : {
       backgroundColor:'#EED6D3',
-      flex:1
+      flex:1,
+      flexDirection:'column',
+      justifyContent:'space-evenly'
+
   },
   
   separator: {
       marginVertical: 8,
     },
   buttonview: {
+      flexDirection :'column',
       borderBottomLeftRadius:50,
       borderTopLeftRadius:50,
       borderBottomRightRadius:50,
@@ -89,6 +96,11 @@ const styles = StyleSheet.create({
       marginBottom:10,
       marginTop:10,
       marginVertical: 8,
+      borderColor:'black',
+      
+      // marginHorizontal:8
+      // justifyContent :'space-between'
+
   }
 })
 
