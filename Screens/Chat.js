@@ -88,7 +88,6 @@ export default class Chat extends Component<props>{
       loading:  false
     })),this.testPush());
   
-
   }
 
   componentWillUnmount() {

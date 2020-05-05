@@ -15,11 +15,37 @@ function Main({ navigation }) {
   
 
   const [name,setName] =useState('')
-  const [unique_id ,setid]=useState('')
-  const [user_State , setState]= useState(['0','1','1','1','0','1','1','1','0','0','1','1']) // o and 1 wether a user is a part of that channel or not
+  const [uniqueId ,setId]=useState('')
+  const [userChannels , setUserChannels]= useState() // channels that the user has joined
   const [count,setCount]=useState(['1','1','91','1','1','100','1','1','1','190','1','1']) // count of each channel
   const [Channels ,setChannels]=useState(['Cancer', 'Asthma', 'Diabetes' ,'Cough', 'Bood Pressure' , 'Teeth Cavity','Heart' , 'Acane','Depression' ,'Lungs Infection','Vision','Ear_Pain'])
 
+  async function GetUserChannels(id){
+    let packet = {
+      "id" : id
+    }
+    console.log("Packet: ", packet)
+    try{
+      const response = await fetch('https://medchatse.herokuapp.com/channels/getUserChannels', {
+        method: 'POST',
+        headers:{
+            'Content-type' : 'application/json',
+        },
+        body: JSON.stringify(packet)
+      })
+      const respJson = await response.json()
+      console.log("response", respJson)
+      let channelList = respJson.map(channel => {
+        console.log(channel.channelName + "   " + channel.channelCount)
+      })
+      setUserChannels(channelList)
+    }
+    catch(error){
+      alert(error)
+    }
+    
+    // console.log(respJson)
+  }
 
   useEffect(()=>{
     // handle all hooks here
@@ -27,46 +53,34 @@ function Main({ navigation }) {
     // unique id hook
     // each channel count how many members are there
     // list of channelse which user have joined 
-    
-    // setName(navigation.state.prams.name)
+
+    setId(navigation.state.params) //--> this is the unique user ID
     console.log('effect------------ caled')
-  })
-  
- 
-  function handle_database(x, index){
-    // handle here wether the  user that seleted the cahnnel is part of that or not 
-    // x is the name of the channel 
-    // handle user wann join it then commit to data base
-   
-    if(user_State[index]==='0'){ //not a part of channels
-        alert('WANNA join this channel')
-        // commit this user to data base
-
-      // NAvigate them to chat screen
-      // navigation.navigate('Chat', {name: name , id :unique_id , channel_number : selected_channel}); 
-    }else{
-      navigation.navigate('Chat', {name: name , id :unique_id , channel_name : x});
-    }
-
+    GetUserChannels(navigation.state.params)
+    // setName(navigation.state.prams.name)
     
-  }
+  }, [])
   
   return (
     <ScrollView >
       <View style={styles.initial}>
-        {Channels.map((item, index)=>(
-          // U just needed to move this <VIEW> inside the map function. Warna everything will be considered a single button
-          <View style={styles.buttonview}>
-            <Button title={item+' ->  '+count[index]+'JOINED STATE->'+user_State[index]}  onPress ={()=>handle_database(item ,index)}
-            color="#8155BA"
-            marginTop='10'
-            />
-          </View>
-        ))}
+        <Text>Navigation Tabs</Text>
+        {userChannels? 
+          userChannels.map(channel=> {
+            // U just needed to move this <VIEW> inside the map function. Warna everything will be considered a single button
+            <View style={styles.buttonview}>
+              <Button 
+              title={channel}  
+              onPress ={() => navigation.navigate('Chat', {name: name , id :uniqueId , channel_name : channel})}
+              color="#8155BA"
+              marginTop='10'
+              />
+            </View>      
+          })
+          :
+          <Text>Loading</Text>
+        }
         
-        <View style = {styles.buttonview}>
-          <Button title="Sign Out" onPress={()=>navigation.navigate("Login")} color="#8155BA" />
-        </View>
       </View>
   </ScrollView>
   );

@@ -48,29 +48,35 @@ function Register({ navigation }){
 
         // Check Validity of all inputs. Client-side checks for input
         const validate = profile.map((_, index) => {
-            validateInput(profile[index], index)
+            return validateInput(profile[index], index)
         })
         
-        validate.forEach(val => {
+        console.log(validate)
+        validate.forEach((val,index) => {
             if(!val){
+                console.log("this is not correct", val, index)
                 setValidAll(false)
                 inputChecks = false;
-                return // return acts as a break when used inside forEach()
             }
         })
-        console.log("ValidAll: ", validAll)
+        console.log("inputChecks: ", inputChecks)
         let doctorDiseases = []
         let patientDisease = []
-        if(userType[0]) //Doctor
-            doctorDiseases = selectedDiseases
-        else if (userType[1])
-            patientDisease = selectedDiseases
 
+        let diseases = selectedDiseases.map(val => {
+            return diseaseList[val].name
+        })
+        console.log(diseases)
+        if(userType[0]) //Doctor
+            doctorDiseases = diseases
+        else if (userType[1])
+            patientDisease = diseases
+
+        
         // if all of the conditions are fulfilled we can send the packet to the server
         if(inputChecks){
             // call the api here...?
             // Sending the channel numbers (Diesease id. Not the disease)
-            
             
             let packet = {
                 "firstName" : profile[0],
@@ -88,7 +94,7 @@ function Register({ navigation }){
                     "patientDisease" : patientDisease
                 }
             }
-            console.log("packet ready for sending")
+            console.log("packet ready for sending", packet)
             const response = await fetch('https://medchatse.herokuapp.com/signUp', {
                 method: 'POST',
                 headers:{
@@ -115,7 +121,6 @@ function Register({ navigation }){
         let prevValidArr = validStates.slice()
         let prevProfileArr = profile.slice()
                 
-        console.log("Validate func called for ", type)
         // fName
         if(type == 0){
             const check = /[a-zA-Z]+$/ // contains only letters 
@@ -169,7 +174,41 @@ function Register({ navigation }){
     }
 
     // https://github.com/aaronksaunders/expo-rn-firebase-image-upload
-    async function UploadImage() {
+    async function UploadImage(){
+        if(!pic)
+            return;
+        
+        let image = pic;
+        fetch(image.uri)
+            .then(response => response.blob())
+            .then( blob => {
+                let imgName = new Date().getTime() + "-media.jpg"
+                console.log(imgName)
+                const ref = storage.ref(`images/${imgName}`)
+                const uploadTask = ref.put(blob)
+                uploadTask.on('state_changed',
+                    snapshot => {
+                        let latest_progress = snapshot.bytesTransferred / snapshot.totalBytes
+                        console.log('Upload is ' + Math.round(latest_progress*100) + ' % done');
+                        setProgress(latest_progress)
+                        setImageUploading(true)
+                    }, error =>{
+                        setProgress(0)
+                        setImageUploading(false)
+                        alert(error)
+                        console.log(error)
+                    }, () => {
+                        setImageUploading(false)
+                        storage.ref('images').child(imgName).getDownloadURL().then(url=>{
+                            console.log("File Available at: ", url);
+                            setPic(prevPic => {
+                                return {...prevPic, url: url}
+                            })
+                    })
+                })
+            })
+    }
+    function SelectImage() {
         // An options obj need to be passed to the img lib.
         const options = {
             noData : true,
@@ -178,43 +217,11 @@ function Register({ navigation }){
             // console.log('Response: ', response)
             if(image.uri){
                 setPic(image)
-                const metadata = {
-                    contentType: image.type
-                }
-                fetch(image.uri)
-                    .then(response => response.blob())
-                    .then( blob => {
-                        let imgName = new Date().getTime() + "-media.jpg"
-                        console.log(imgName)
-                        const ref = storage.ref(`images/${imgName}`)
-                        const uploadTask = ref.put(blob, metadata)
-                        uploadTask.on('state_changed',
-                            snapshot => {
-                                let latest_progress = snapshot.bytesTransferred / snapshot.totalBytes
-                                console.log('Upload is ' + Math.round(latest_progress*100) + ' % done');
-                                setProgress(latest_progress)
-                                setImageUploading(true)
-                            }, error =>{
-                                setProgress(0)
-                                setImageUploading(false)
-                                alert(error)
-                                console.log(error)
-                            }, () => {
-                                setImageUploading(false)
-                                storage.ref('images').child(imgName).getDownloadURL().then(url=>{
-                                    console.log("File Available at: ", url);
-                                    setPic(prevPic => {
-                                        return {...prevPic, url: url}
-                                    })
-                            })
-                        })
-                    })
             }
             else if (image.error){
                 alert(image.error)
             }
         })
-        
     }
 
     // const { selectedItems } = this.state;
@@ -243,8 +250,8 @@ function Register({ navigation }){
                         <View style={styles.buttonView}>
                             <Button
                                 color= '#8155BA'
-                                onPress={()=>UploadImage()}
-                                title='Upload Image'
+                                onPress={()=>SelectImage()}
+                                title={imageUploading? 'Uploading Image...': 'Select Image'}
                                 disabled={imageUploading}
                             />
                         </View>
@@ -300,7 +307,8 @@ function Register({ navigation }){
                         <CheckBox value={userType[1]} onChange={() => SelectUserType(1)} />
                         <Text style={{marginTop: 5,color:"#8155BA"}}>Patient</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+
+                    {/* <View style={{ flex: 1 }}>
                         <MultiSelect
                         hideTags
                         hideDropdown
@@ -328,12 +336,11 @@ function Register({ navigation }){
                         itemTextColor = "#8155BA"
                         submitButtonColor="#8155BA"
                         submitButtonText="Submit"
-                        />
+                        /> 
                         <View>
-                            {/* This shows the selected diseases on the screen */}
                             {selectedDiseases? multiSelect.getSelectedItemsExt(selectedDiseases): null}
                         </View>
-                    </View>
+                    </View>*/}
                     <View style={{justifyContent: 'center', alignItems: 'center'}}>
                         <View style={styles.buttonView}>
                             <Button  
@@ -350,7 +357,6 @@ function Register({ navigation }){
                             />
                         </View>
                     </View>
-                    {/* {validAll ? null : <Text>The values in red blocks are not in correct format!</Text>} */}
                 </ImageBackground>
             </ScrollView>
         </View>
