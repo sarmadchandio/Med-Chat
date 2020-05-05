@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import {View, Text, Button, Image, ImageBackground, StyleSheet} from 'react-native';
+import {View, Text, Button, ScrollView, Image, ImageBackground, StyleSheet} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
 
@@ -7,11 +7,12 @@ import auth from '@react-native-firebase/auth';
 // navigation prop is passed down to all our screen components frfom the stack container
 function Login({ navigation }){
     // If null, no SMS has been sent
-    const [phoneNumber ,setPhoneNumber]=useState('+16505551234')  //Phone Number
+    const [phoneNumber ,setPhoneNumber]=useState('+13313107546')  //Phone Number +1 650-555-1234
     const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
     const [code, setCode] = useState('123456'); // confirmation code (phone) from the user
     const [userName, setUserName] = useState('tester')
     const [password, setPassword] = useState('godmodefortestingservershouldbeon')
+    const [user, setUser] = useState(auth().currentUser)
 
 
     // Method to fetch our own apis
@@ -40,11 +41,12 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
         console.log("JSON Returned: ", respJson)
         if(!respJson.message)
             navigation.navigate('Main', respJson)
-        else
-            alert(respJson)
+        else{
+            alert(respJson.message)
+        }
     }catch(error){
         alert(error)
-        console.log(error)
+        console.log("Error in MongoDblogin: ", error)
     }
 }
 
@@ -52,6 +54,7 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
     async function signInWithPhoneNumber(phoneNumber){
         try{
             const verification = await auth().signInWithPhoneNumber(phoneNumber);
+            console.log(verification)
             setConfirm(verification);
         }catch(err){
             alert(err)
@@ -59,14 +62,16 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
         }
     }
 
+
     async function confirmCode() {
         try {
+            console.log("Code: ", code)
+            console.log(confirm)
             const conf =  await confirm.confirm(code);
             console.log('confirmed', conf)
             //Phone Number Verified so a request can be sent to the server to fetch data
             if (conf){
                 await LoginMongoDB('phone','user','pass', phoneNumber)
-
                 // The user is signed in after verfying the confirm code.
                 // So we need to sign out the user from fire_base.
                 auth().signOut().then(console.log('sigend_out...?'))
@@ -74,66 +79,73 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
             else{
                 alert('Invalid Verification Code')
             }             
-            
         } catch (err) {
             alert(err)
             console.log('confirmCodeERR: ', err)
         }
     }
 
+
+
     // Assuming the user is signed out, if there is no display name...?
     if (!confirm){
+        console.log(user)
         return(
             <View style={styles.initial}>
+                
                 <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
-                    <Image 
-                        style = {{width:50, height:50}}
-                        source={require('../imgs/logo.jpeg')}
-                    />
-                    <Text style={styles.textformat}>Log In</Text>
-                    <TextInput 
-                        placeholder='Username'
-                        onChangeText={(text) => setUserName(text)}
-                        value={userName}
-                        style={styles.inputBox}
+                    <ScrollView>
+                        <Image 
+                            style = {styles.imagestyle}
+                            source={require('../imgs/logo.jpeg')}
                         />
-                    <TextInput 
-                        placeholder='Password' 
-                        secureTextEntry={true}
-                        onChangeText={(text) => setPassword(text)}
-                        value={password}
-                        style={styles.inputBox}
-                        />
-                    {/* <View style={styles.separator} />  */}
-                    <View style={styles.buttonview}>       
-                        <Button 
-                            title="LogIn" 
-                            onPress={() => LoginMongoDB('server', userName, password)}
-                            color="#8155BA"
-                        />
-                    </View>
-                    {/* <View style={styles.separator} />
-                    <View style={styles.separator} /> */}
-                    <View style={styles.buttonview}>
-                        <Button 
-                            title="Register" 
-                            onPress={() => navigation.navigate("Register")}
-                            color="#8155BA"
+                        <Text style={{marginLeft:155,color:"#8155BA"}}>MedChat</Text>
+                        <Text style={styles.textformat}>Log In</Text>
+                        <TextInput 
+                            placeholder='Username'
+                            onChangeText={(text) => setUserName(text)}
+                            value={userName}
+                            style={styles.inputBox}
                             />
-                    </View>
-                    <TextInput 
-                        placeholder='phone("+16505551234")'
-                        value= {phoneNumber} 
-                        onChangeText = {Text=>setPhoneNumber(Text)} 
-                        style={styles.inputBox}
-                        />
-                    <View style={styles.buttonview}>
-                        <Button
-                            title="Sign In With Phone Number"
-                            onPress={() => signInWithPhoneNumber(phoneNumber)}
-                            color="#8155BA"
-                        />
-                    </View>
+                        <TextInput 
+                            placeholder='Password' 
+                            secureTextEntry={true}
+                            onChangeText={(text) => setPassword(text)}
+                            value={password}
+                            style={styles.inputBox}
+                            />
+                        {/* <View style={styles.separator} />  */}
+                        <View style={styles.buttonview}>       
+                            <Button 
+                                title="LogIn" 
+                                onPress={() => LoginMongoDB('server', userName, password)}
+                                color="#8155BA"
+                            />
+                        </View>
+                        {/* <View style={styles.separator} />
+                        <View style={styles.separator} /> */}
+                        <View style={styles.buttonview}>
+                            <Button 
+                                title="Register" 
+                                onPress={() => navigation.navigate("Register")}
+                                color="#8155BA"
+                                />
+                        </View>
+                        <TextInput 
+                            placeholder='phone("+16505551234")'
+                            value= {phoneNumber} 
+                            onChangeText = {Text=>setPhoneNumber(Text)} 
+                            style={styles.inputBox}
+                            />
+                        <View style={styles.buttonview}>
+                            <Button
+                                title="Sign In With Phone Number"
+                                onPress={() => signInWithPhoneNumber(phoneNumber)}
+                                color="#8155BA"
+                            />
+                        </View>
+                    
+                    </ScrollView>
                 </ImageBackground>
             </View>
             
@@ -157,7 +169,7 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
 const styles = StyleSheet.create({
     image: {
         flex: 1,
-        resizeMode: "cover",
+        resizeMode: "stretch",
         justifyContent: "center"
       },
     inputBox : {
@@ -165,31 +177,33 @@ const styles = StyleSheet.create({
         // justifyContent:'center',
         borderBottomWidth:1,
         borderBottomColor:'#A49393',
-        // backgroundColor:'#EED6D3',
     },
     initial : {
-        // backgroundColor:'#EED6D3',
         flex:1
     },
     textformat : {
         textAlign:'left',
-        fontSize: 30, 
+        fontSize: 20, 
         fontStyle:'normal',
+        color:"#8155BA"
         // marginTop:100
+    },
+    imagestyle : {
+        width:90,
+        height:90,
+        marginLeft:145,
+        marginTop: 10
     },
     // separator: {
     //     marginVertical: 0,
     //   },
     buttonview: {
-        borderBottomLeftRadius:50,
-        borderTopLeftRadius:50,
-        borderBottomRightRadius:50,
-        borderTopRightRadius:50,
+        borderRadius: 50,
         overflow:'hidden',
         width:'80%',
         marginLeft:40,
-        marginBottom:5,
-        marginTop: 10
+        marginBottom:10,
+        marginTop: 20
     }
 })
 

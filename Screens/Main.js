@@ -55,9 +55,11 @@ function Main({ navigation }) {
     <ScrollView>
       <View style={styles.initial}>
         <View style={styles.buttonview}>{Channels.map((item, index)=>(
-          <Button title={item+' ->  '+count[index]+'JOINED STATE->'+user_State[index]}  onPress ={()=>handle_database(item ,index)}
-          color="#8155BA"
-          marginTop='10'
+          <Button
+            title={item+' ->  '+count[index]+'JOINED STATE->'+user_State[index]}  
+            onPress ={()=>handle_database(item ,index)}
+            color="#8155BA"
+            marginTop='10'
           />
         ))}
         </View>

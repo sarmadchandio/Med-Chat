@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "79684443301",
+    "firebase_url": "https://medchat-e1838.firebaseio.com",
+    "project_id": "medchat-e1838",
+    "storage_bucket": "medchat-e1838.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79684443301:android:8eb5bf454eff28f452014c",
+        "android_client_info": {
+          "package_name": "com.application.medchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79684443301-5n18en8ec17p424apkjj9sgtrcllksij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.application.medchat",
+            "certificate_hash": "07aa62fb22ff011895490ca1597183a0d793955b"
+          }
+        },
+        {
+          "client_id": "79684443301-sqd5u54n2fadeppt2jjsorren9q8mc0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.application.medchat",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "79684443301-2nf5lqov1p205h7lvavpqc5tnn3fkbe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEvW19uAL1xMRlWZVW0PVbZ9RC8RjGPrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79684443301-2nf5lqov1p205h7lvavpqc5tnn3fkbe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

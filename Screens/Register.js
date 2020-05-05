@@ -7,8 +7,8 @@ import MultiSelect from 'react-native-multiple-select';
 
 import { Circle } from 'react-native-progress'; // https://www.npmjs.com/package/react-native-progress
 
-import { storage } from './firebase_auth'
-import diseaseList from './INITIALIZE_DISEASES.js'
+import { storage } from './Utils/firebase_auth'
+import diseaseList from './Utils/INITIALIZE_DISEASES.js'
 import { set } from 'react-native-reanimated';
 
 function Register({ navigation }){
@@ -59,17 +59,17 @@ function Register({ navigation }){
             }
         })
         console.log("ValidAll: ", validAll)
-        
+        let doctorDiseases = []
+        let patientDisease = []
+        if(userType[0]) //Doctor
+            doctorDiseases = selectedDiseases
+        else if (userType[1])
+            patientDisease = selectedDiseases
 
         // if all of the conditions are fulfilled we can send the packet to the server
         if(inputChecks){
+            // call the api here...?
             // Sending the channel numbers (Diesease id. Not the disease)
-            let doctorDiseases = []
-            let patientDisease = []
-            if(userType[0]) //Doctor
-                doctorDiseases = selectedDiseases
-            else if (userType[1])
-                patientDisease = selectedDiseases
             
             
             let packet = {
@@ -208,8 +208,8 @@ function Register({ navigation }){
                         })
                     })
             }
-            else if (response.error){
-                alert(response.error)
+            else if (image.error){
+                alert(image.error)
             }
         })
         

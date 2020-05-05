@@ -9,5 +9,8 @@ git stash
 git stash pop --> merge the files
 git stash drop --> drop the last stash?
 
+Merging un related projects
+git pull origin master --allow-unrelated-histories
+
 build apk
 cd android && ./gradlew assembleRelease
