@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dong/Downloads/MC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ka/values-ka.xml",
+            "outputFile": "/home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/b8be31169738669a8b666d08f18805cb/jetified-firebase-messaging-20.1.6/res/values-ka/values.xml",

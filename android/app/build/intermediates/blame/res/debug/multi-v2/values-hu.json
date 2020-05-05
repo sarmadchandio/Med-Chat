@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dong/Downloads/MC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
+            "outputFile": "/home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
             "map": [
                 {
                     "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/32fdff3ee008aa4aec332d2078454510/jetified-play-services-basement-17.0.0/res/values-hu/values.xml",

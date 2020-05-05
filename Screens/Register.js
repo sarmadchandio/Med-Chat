@@ -9,6 +9,7 @@ import { Circle } from 'react-native-progress'; // https://www.npmjs.com/package
 
 import { storage } from './firebase_auth'
 import diseaseList from './INITIALIZE_DISEASES.js'
+import { set } from 'react-native-reanimated';
 
 function Register({ navigation }){
     // String array ==> fName, lName, uName, password, phone, email, bday --> 
@@ -25,13 +26,11 @@ function Register({ navigation }){
     // boolean array ==> fName, lName, uName, password, phone, email, bday, isDoctor, isPatient, isNeither
     const [validStates, setValidStates] = useState([1,1,1,1,1,1,1])
     // This becomes tru when all required elements are true 
-    const [validAll, setValidAll] = useState(true)
+    const [validAll, setValidAll] = useState(false)
 
-    
     // Doctor or Patient
     function SelectUserType(entryNumber){
         let prevUserType = userType.slice()
-        console.log(prevUserType)
         for(let i=0; i<prevUserType.length; i++){
             if(i==entryNumber)
                 prevUserType[i] = !prevUserType[i]
@@ -43,75 +42,80 @@ function Register({ navigation }){
 
     // validates all inputs before sending to Server
     async function ValidateAndSend(){
-        let valArr = []
-        valArr.push(validateInput(profile[0], 0))
-        valArr.push(validateInput(profile[1], 1))
-        valArr.push(validateInput(profile[2], 2))
-        valArr.push(validateInput(profile[3], 3))
-        valArr.push(validateInput(profile[4], 4))
-        // validateInput(email, 5) ---> made optional
-        valArr.push(validateInput(profile[6], 6))
+        // Assuming all things are correct, will change these values, if some check fails
+        setValidAll(true)
+        let inputChecks = true;
+
+        // Check Validity of all inputs. Client-side checks for input
+        const validate = profile.map((_, index) => {
+            validateInput(profile[index], index)
+        })
         
-        // Check Validity of all inputs. If any input doesn't match the format return from the function
-        valArr.forEach(val => {
+        validate.forEach(val => {
             if(!val){
                 setValidAll(false)
-                // console.log("Should return false")
-                return
+                inputChecks = false;
+                return // return acts as a break when used inside forEach()
             }
         })
-        setValidAll(true)
-
-        // Sending the channel numbers (Diesease id. Not the disease)
-        let doctorDiseases = []
-        let patientDisease = []
-        if(userType[0]) //Doctor
-            doctorDiseases = selectedDiseases
-        else if (userType[1])
-            patientDisease = selectedDiseases
+        console.log("ValidAll: ", validAll)
+        
 
         // if all of the conditions are fulfilled we can send the packet to the server
-        let packet = {
-            "firstName" : profile[0],
-            "lastName" : profile[1],
-            "username" : profile[2],
-            "password" : profile[3],
-            "phoneNumber" : profile[4],
-            "email" : profile[5],
-            "birthday" : profile[6],
-            "profilePicture" : pic,
-            "diseaseHistory" : {
-                "isDoctor" : userType[0],
-                "isPatient" : userType[1],
-                "doctorDiseases" : doctorDiseases,
-                "patientDisease" : patientDisease
+        if(inputChecks){
+            // Sending the channel numbers (Diesease id. Not the disease)
+            let doctorDiseases = []
+            let patientDisease = []
+            if(userType[0]) //Doctor
+                doctorDiseases = selectedDiseases
+            else if (userType[1])
+                patientDisease = selectedDiseases
+            
+            
+            let packet = {
+                "firstName" : profile[0],
+                "lastName" : profile[1],
+                "username" : profile[2],
+                "password" : profile[3],
+                "phoneNumber" : profile[4],
+                "email" : profile[5],
+                "birthday" : profile[6],
+                "profilePicture" : pic,
+                "diseaseHistory" : {
+                    "isDoctor" : userType[0],
+                    "isPatient" : userType[1],
+                    "doctorDiseases" : doctorDiseases,
+                    "patientDisease" : patientDisease
+                }
+            }
+            console.log("packet ready for sending")
+            const response = await fetch('https://medchatse.herokuapp.com/signUp', {
+                method: 'POST',
+                headers:{
+                    Accept : 'application/json',
+                    'Content-type' : 'application/json',
+                },
+                body: JSON.stringify(packet)
+            })
+            const respJson = await response.json()
+            console.log("JSON returned: ", respJson)
+    
+            try{
+                alert(respJson.message)
+                if(respJson.message == "Registration Successful!")
+                    navigation.pop() // will move back to Login Screen after a succesful Registration
+            }catch(err){
+                alert(err)
             }
         }
-        console.log(packet)
-        const response = await fetch('https://medchatse.herokuapp.com/signUp', {
-            method: 'POST',
-            headers:{
-                Accept : 'application/json',
-                'Content-type' : 'application/json',
-            },
-            body: JSON.stringify(packet)
-        })
-        const respJson = await response.json()
-        console.log("JSON returned: ", respJson)
-
-        try{
-            alert(respJson.message)
-            if(respJson.message == "Registration Successful!")
-                navigation.pop() // will move back to Login Screen after a succesful Registration
-        }catch(err){
-            alert(err)
-        }
+        
     }
     // Checks the input at client side before sending it to the server
     function validateInput(text, type){
         let prevValidArr = validStates.slice()
         let prevProfileArr = profile.slice()
                 
+        console.log("Validate func called for ", type)
         // fName
         if(type == 0){
             const check = /[a-zA-Z]+$/ // contains only letters 
@@ -199,6 +203,7 @@ function Register({ navigation }){
                                 setImageUploading(false)
                                 storage.ref('images').child(imgName).getDownloadURL().then(url=>{
                                     console.log("File Available at: ", url);
+                                    setPic(url)
                             })
                         })
                     })
@@ -333,10 +338,17 @@ function Register({ navigation }){
                                 title='Register'
                                 color= '#8155BA'
                                 onPress={()=> ValidateAndSend()}
+                                // disabled={!validAll}
+                            />
+                            <Button  
+                                title='Back'
+                                color= '#8155BA'
+                                onPress={()=> console.log("PressedBack!")}
+                                disabled={!validAll}
                             />
                         </View>
                     </View>
-                    {validAll ? null : <Text>The values in red blocks are not in correct format!</Text>}
+                    {/* {validAll ? null : <Text>The values in red blocks are not in correct format!</Text>} */}
                 </ImageBackground>
             </ScrollView>
         </View>
