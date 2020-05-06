@@ -12,10 +12,9 @@ import {  StyleSheet ,View, ImageBackground} from 'react-native';
 
 export default class Chat extends Component<props>{
   
-  static navigationOptions = ({route, navigation }) => {  
+  static navigationOptions = ({route,  navigation }) => {  
     return {
-       
-        title: this.route.params.channel_name,
+        title: rout.params.channel_name,  
         
         headerStyle: {  
                 backgroundColor: '#FCF4E4',  
@@ -27,12 +26,12 @@ export default class Chat extends Component<props>{
         // headerTintColor: '#fff',
         headerRight: () => (
           <View style={styles.buttonView}>
-            <Button
-              onPress={() => navigation.navigate('Channel_Profile',{channel_name:navigation.state.params.channel_name})}
-              title="Info"
-              color="#8155BA"
-              
-            />
+          <Button
+            onPress={() => navigation.navigate('Channel_Profile',{channel_name:navigation.state.params.channel_name})}
+            title="Info"
+            color="#8155BA"
+            
+          />
           </View>
         )
     };  
@@ -75,11 +74,12 @@ export default class Chat extends Component<props>{
   componentDidMount() {  /// this compent will fetch all prevoius messages from chat
 
     GiftedChat.renderLoading=true
-    this.database=this.route.navigation.params.channel_name
-    this.user=this.route.navigation.params.name
-    this.unique_id =this.route.navigation.params.id
+    console.log(this.props.navigation)
+    console.log(this.props.route)
+    this.database=this.props.route.params.channel_name
+    this.user=this.props.route.params.name
+    this.unique_id =this.props.route.params.id
     
-    console.log(this.route.params)
     // Fire.shared.select_data_base(this.database)
     Fire.shared.select_data_base('messages_1_1')
     

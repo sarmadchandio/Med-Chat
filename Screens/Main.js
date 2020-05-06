@@ -71,7 +71,7 @@ function Main({ navigation }) {
     for(let i=0; i<userChannels.length; i++){
       if(userChannels[i].channelName == item){
         //Join Channel
-        navigation.navigate('Chat', {name: user.userName , id :uniqueId , channel_name : item});
+        navigation.navigate('Chat', {name: user.userName , id :uniqueId.Id , channel_name : item});
         isValiditem = true
       }
     }
