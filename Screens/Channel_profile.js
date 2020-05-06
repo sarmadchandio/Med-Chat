@@ -9,7 +9,7 @@ import {
   Alert,
   Button,
 } from 'react-native';
-function Channel_Profile({navigation}){
+function Channel_Profile({route, navigation}){
     return(
         <Text>we are here</Text>
     )
