@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-
 import Login from '../Screens/Login';
 import Register from '../Screens/Register';
 import Main from '../Screens/Main';
@@ -19,8 +18,9 @@ function MyTabs(){
         <Tab.Navigator
             tabBarOptions={{
             activeTintColor: 'purple',
+            inactiveTintColor: '#D9CED6',
             labelStyle: { fontSize: 12 },
-            // style: { backgroundColor: 'powderblue' },
+            style: { backgroundColor: '#FCECDE' },
             }}
         >
             <Tab.Screen name='Home' component={Main} />
@@ -34,7 +34,18 @@ const HomeStack = createStackNavigator()
 function MyNavigator(){
     return(
         <NavigationContainer>
-            <HomeStack.Navigator>
+            <HomeStack.Navigator 
+             screenOptions={{
+                headerTintColor: '#D9CED6',
+                headerStyle: { backgroundColor: '#8155BA'},
+                headerTitleStyle: {
+                    color:'#FCF4E4',
+                    fontWeight:'bold',
+                    fontSize:25,
+                    fontFamily:'MuseoSansRounded-300'
+                }
+              }}
+            >
                 <HomeStack.Screen name='Login' component={Login} />
                 <HomeStack.Screen name='Main' component={MyTabs} />
                 <HomeStack.Screen name='Register' component={Register} />
