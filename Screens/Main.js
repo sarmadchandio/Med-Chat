@@ -15,7 +15,7 @@ function Main({ navigation }) {
   // initializing profile
   const [initializing, setInitializing] = useState(true)
 
-  
+
 
   useEffect(()=>{
     // handle all hooks here
@@ -29,8 +29,10 @@ function Main({ navigation }) {
     let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
     setUniqueId(id)
     GetInfo('channels/getUserChannels', id).then(resp => {
-      if(resp.length>0)
+      if(resp.length>0){
         setUserChannels(resp)
+        
+      }
       setInitializing(false)
     })
     // setChannels(GetInfo('channels/getChannels', id))
@@ -48,7 +50,7 @@ function Main({ navigation }) {
     );
   }
 
-
+  // can render only Even Length Channels
   return (
     <ScrollView >
       <View style={styles.initial}>
@@ -67,7 +69,6 @@ function Main({ navigation }) {
           )):
           <Text>You are not part of any Channel. Please Join a channel to start</Text>
         }
-        
       </View>
   </ScrollView>
   );
