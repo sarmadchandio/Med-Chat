@@ -9,11 +9,11 @@ import { Circle } from 'react-native-progress'; // https://www.npmjs.com/package
 
 import { storage } from './Utils/firebase_auth'
 import diseaseList from './Utils/INITIALIZE_DISEASES.js'
-import { set } from 'react-native-reanimated';
 
 function Register({ navigation }){
     // String array ==> fName, lName, uName, password, phone, email, bday --> 
-    const [profile, setProfile] = useState(['','','','','','','',])
+    // const [profile, setProfile] = useState(['','','','','','','',])
+    const [profile, setProfile] = useState(['fane','asd','dsa','12345','+923458762331','gig@gmal.com','1992-11-11',])
     // Updates the checkboxes of UserType ==> Doctor or patient
     const [userType, setUserType] = useState([false,false]) 
     // A list for selected diseases (index numbers of diseases)
@@ -54,7 +54,6 @@ function Register({ navigation }){
         console.log(validate)
         validate.forEach((val,index) => {
             if(!val){
-                console.log("this is not correct", val, index)
                 setValidAll(false)
                 inputChecks = false;
             }
@@ -63,21 +62,20 @@ function Register({ navigation }){
         let doctorDiseases = []
         let patientDisease = []
 
-        let diseases = selectedDiseases.map(val => {
-            return diseaseList[val].name
-        })
-        console.log(diseases)
-        if(userType[0]) //Doctor
-            doctorDiseases = diseases
-        else if (userType[1])
-            patientDisease = diseases
+        // let diseases = selectedDiseases.map(val => {
+        //     return diseaseList[val].name
+        // })
+        // console.log(diseases)
+        // if(userType[0]) //Doctor
+        //     doctorDiseases = diseases
+        // else if (userType[1])
+        //     patientDisease = diseases
 
         
         // if all of the conditions are fulfilled we can send the packet to the server
         if(inputChecks){
             // call the api here...?
             // Sending the channel numbers (Diesease id. Not the disease)
-            
             let packet = {
                 "firstName" : profile[0],
                 "lastName" : profile[1],
@@ -86,7 +84,7 @@ function Register({ navigation }){
                 "phoneNumber" : profile[4],
                 "email" : profile[5],
                 "birthday" : profile[6],
-                "profilePicture" : pic,
+                "profilePicture" : pic.url,
                 "diseaseHistory" : {
                     "isDoctor" : userType[0],
                     "isPatient" : userType[1],
@@ -95,22 +93,25 @@ function Register({ navigation }){
                 }
             }
             console.log("packet ready for sending", packet)
-            const response = await fetch('https://medchatse.herokuapp.com/signUp', {
-                method: 'POST',
-                headers:{
-                    Accept : 'application/json',
-                    'Content-type' : 'application/json',
-                },
-                body: JSON.stringify(packet)
-            })
-            const respJson = await response.json()
-            console.log("JSON returned: ", respJson)
-    
+            // return;
+            // "profilePicture": "content://com.miui.gallery.open/raw/%2Fstorage%2Femulated%2F0%2FDCIM%2FScreenshots%2FScreenshot_2020-05-05-20-45-34-712_com.medchat.jpg"
             try{
+                const response = await fetch('https://medchatse.herokuapp.com/signUp', {
+                    method: 'POST',
+                    headers:{
+                        Accept : 'application/json',
+                        'Content-type' : 'application/json',
+                    },
+                    body: JSON.stringify(packet)
+                })
+                const respJson = await response.json()
+                console.log("JSON returned: ", respJson)
                 alert(respJson.message)
-                if(respJson.message == "Registration Successful!")
-                    navigation.pop() // will move back to Login Screen after a succesful Registration
+                if(respJson.message == "Registered Succesfully!"){
+                    // navigation.pop() // will move back to Login Screen after a succesful Registration
+                }
             }catch(err){
+                console.log("RegisterApi Err", err)
                 alert(err)
             }
         }
@@ -175,40 +176,6 @@ function Register({ navigation }){
 
     // https://github.com/aaronksaunders/expo-rn-firebase-image-upload
     async function UploadImage(){
-        if(!pic)
-            return;
-        
-        let image = pic;
-        fetch(image.uri)
-            .then(response => response.blob())
-            .then( blob => {
-                let imgName = new Date().getTime() + "-media.jpg"
-                console.log(imgName)
-                const ref = storage.ref(`images/${imgName}`)
-                const uploadTask = ref.put(blob)
-                uploadTask.on('state_changed',
-                    snapshot => {
-                        let latest_progress = snapshot.bytesTransferred / snapshot.totalBytes
-                        console.log('Upload is ' + Math.round(latest_progress*100) + ' % done');
-                        setProgress(latest_progress)
-                        setImageUploading(true)
-                    }, error =>{
-                        setProgress(0)
-                        setImageUploading(false)
-                        alert(error)
-                        console.log(error)
-                    }, () => {
-                        setImageUploading(false)
-                        storage.ref('images').child(imgName).getDownloadURL().then(url=>{
-                            console.log("File Available at: ", url);
-                            setPic(prevPic => {
-                                return {...prevPic, url: url}
-                            })
-                    })
-                })
-            })
-    }
-    function SelectImage() {
         // An options obj need to be passed to the img lib.
         const options = {
             noData : true,
@@ -216,12 +183,40 @@ function Register({ navigation }){
         ImagePicker.launchImageLibrary(options, image => {
             // console.log('Response: ', response)
             if(image.uri){
-                setPic(image)
+                fetch(image.uri)
+                    .then(response => response.blob())
+                    .then( blob => {
+                        let imgName = new Date().getTime() + "-media.jpg"
+                        console.log(imgName)
+                        const ref = storage.ref(`images/${imgName}`)
+                        const uploadTask = ref.put(blob)
+                        uploadTask.on('state_changed',
+                            snapshot => {
+                                let latest_progress = snapshot.bytesTransferred / snapshot.totalBytes
+                                console.log('Upload is ' + Math.round(latest_progress*100) + ' % done');
+                                setProgress(latest_progress)
+                                setImageUploading(true)
+                            }, error =>{
+                                setProgress(0)
+                                setImageUploading(false)
+                                alert(error)
+                                console.log(error)
+                                return false;
+                            }, () => {
+                                setImageUploading(false)
+                                storage.ref('images').child(imgName).getDownloadURL().then(url=>{
+                                    console.log("File Available at: ", url);
+                                    setPic({uri: image.uri, url: url})
+                                })
+                          })
+                    })
             }
             else if (image.error){
                 alert(image.error)
             }
         })
+        
+        
     }
 
     // const { selectedItems } = this.state;
@@ -250,7 +245,7 @@ function Register({ navigation }){
                         <View style={styles.buttonView}>
                             <Button
                                 color= '#8155BA'
-                                onPress={()=>SelectImage()}
+                                onPress={()=>UploadImage()}
                                 title={imageUploading? 'Uploading Image...': 'Select Image'}
                                 disabled={imageUploading}
                             />
@@ -353,7 +348,7 @@ function Register({ navigation }){
                                 title='Back'
                                 color= '#8155BA'
                                 onPress={()=> console.log("PressedBack!")}
-                                disabled={!validAll}
+                                // disabled={!validAll}
                             />
                         </View>
                     </View>

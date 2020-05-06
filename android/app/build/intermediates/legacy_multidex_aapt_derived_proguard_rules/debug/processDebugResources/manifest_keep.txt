@@ -1,4 +1,4 @@
-# Referenced at /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
+# Referenced at /home/dong/Downloads/MedChatBackup/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
+# Referenced at /home/dong/Downloads/MedChatBackup/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
 -keep class com.medchat.MainApplication { <init>(); }

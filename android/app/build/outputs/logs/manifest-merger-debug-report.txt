@@ -1,27 +1,27 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-MERGED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+MERGED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
 MERGED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/79cf45dff789eeca895474686f731158/flipper-network-plugin-0.33.1/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/c522af7c6be754c58e463fea83cce8ce/flipper-fresco-plugin-0.33.1/AndroidManifest.xml:8:1-15:12
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
-MERGED from [:react-native-firebase_app] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:react-native-firebase_app] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/490196c73d7d355edf6256c5fa5d120c/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [:react-native-community_art] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-community_checkbox] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-community_masked-view] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-gesture-handler] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-21:12
-MERGED from [:react-native-push-notification] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-safe-area-context] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-screens] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-vector-icons] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64bd6117675d80834e7bb519bef20c97/jetified-react-native-0.62.2/AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-community_art] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_checkbox] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-community_masked-view] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-gesture-handler] /home/dong/Downloads/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-21:12
+MERGED from [:react-native-push-notification] /home/dong/Downloads/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /home/dong/Downloads/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] /home/dong/Downloads/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-screens] /home/dong/Downloads/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] /home/dong/Downloads/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/ce42b94ef2609d0eb3593ee654de8b9d/jetified-react-native-0.62.2/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/a1d64627529d8d421c0b27e7fdd4a3e1/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] /home/dong/.gradle/caches/transforms-2/files-2.1/bbf0e9fab1af79c79ac1770ffe9175cc/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.fresco:flipper:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/b89a7350dc74dae4e0fa472f1b0e98a6/flipper-2.0.0/AndroidManifest.xml:2:1-9:12
@@ -96,32 +96,32 @@ MERGED from [me.leolin:ShortcutBadger:1.1.22] /home/dong/.gradle/caches/transfor
 MERGED from [com.facebook.soloader:annotation:0.8.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64b0580bbd835378fb7d8f2c79ceda85/annotation-0.8.2/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/081f082dc55e78771b22b91f1dc34557/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/492fc5c27713717c844f92eef06c68a0/transport-api-2.2.0/AndroidManifest.xml:15:1-22:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:2:3-24
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:2:3-24
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:2:3-24
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:2:3-24
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:3:5-51
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:1-57:12
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:4:5-67
 MERGED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:15:5-67
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/579aadedb57581780ee73635c0aef2f4/transport-backend-cct-2.2.0/AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/579aadedb57581780ee73635c0aef2f4/transport-backend-cct-2.2.0/AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/790eb1a32ea2f383cd95d0c0d8deb6fe/play-services-measurement-api-17.2.1/AndroidManifest.xml:22:5-67
@@ -137,19 +137,19 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.1] /home
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.CAMERA
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:5:5-65
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:5:5-65
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:5:22-62
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:5:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:6:5-80
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:6:5-80
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:6:22-78
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:7:5-68
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:7:5-68
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/790eb1a32ea2f383cd95d0c0d8deb6fe/play-services-measurement-api-17.2.1/AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-measurement-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/790eb1a32ea2f383cd95d0c0d8deb6fe/play-services-measurement-api-17.2.1/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:20.1.6] /home/dong/.gradle/caches/transforms-2/files-2.1/f2efbc73d5d0b25518c20e839cae5192/firebase-iid-20.1.6/AndroidManifest.xml:24:5-68
@@ -161,23 +161,23 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.1] /home
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:25:5-68
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:25:5-68
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:7:22-65
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:7:22-65
 uses-permission#android.permission.VIBRATE
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:8:5-66
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:8:22-63
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:8:22-63
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:9:5-80
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:9:5-80
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:9:22-78
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:9:22-78
 application
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
-MERGED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
-MERGED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
-MERGED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
-MERGED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
-MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64bd6117675d80834e7bb519bef20c97/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64bd6117675d80834e7bb519bef20c97/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
+MERGED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
+MERGED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:12:5-55:19
+MERGED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
+MERGED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-19:19
+MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/ce42b94ef2609d0eb3593ee654de8b9d/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/ce42b94ef2609d0eb3593ee654de8b9d/jetified-react-native-0.62.2/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.8.2] /home/dong/.gradle/caches/transforms-2/files-2.1/975f8c03d68f11783cf6231ebd67bc88/soloader-0.8.2/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.8.2] /home/dong/.gradle/caches/transforms-2/files-2.1/975f8c03d68f11783cf6231ebd67bc88/soloader-0.8.2/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.material:material:1.1.0] /home/dong/.gradle/caches/transforms-2/files-2.1/7c9142c17550c92dab314dac75f37ca0/material-1.1.0/AndroidManifest.xml:22:5-20
@@ -237,137 +237,137 @@ MERGED from [com.facebook.soloader:annotation:0.8.2] /home/dong/.gradle/caches/t
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /home/dong/.gradle/caches/transforms-2/files-2.1/51c60a74c89e63786feb7a72e94c376c/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:14:7-39
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:14:7-39
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:14:7-39
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:14:7-39
 	tools:ignore
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:75-114
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:16:7-52
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:16:7-52
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:16:7-52
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:16:7-52
 	tools:targetApi
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:54-74
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:15:7-41
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:15:7-41
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:15:7-41
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:15:7-41
 	android:allowBackup
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:17:7-34
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:17:7-34
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:17:7-34
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:17:7-34
 	android:theme
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:18:7-38
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:18:7-38
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:18:7-38
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:18:7-38
 	android:usesCleartextTraffic
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:18-53
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:7:18-53
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:13:7-38
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:13:7-38
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:13:7-38
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:13:7-38
 meta-data#com.dieam.reactnativepushnotification.notification_channel_name
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:19:7-20:67
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:19:7-20:67
 	android:value
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:20:19-65
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:20:19-65
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:19:19-97
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:19:19-97
 meta-data#com.dieam.reactnativepushnotification.notification_channel_description
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:21:7-22:74
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:21:7-22:74
 	android:value
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:22:19-72
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:22:19-72
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:21:19-104
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:21:19-104
 meta-data#com.dieam.reactnativepushnotification.notification_color
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:25:7-26:52
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:25:7-26:52
 	android:resource
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:26:19-50
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:26:19-50
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:25:19-90
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:25:19-90
 receiver#com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:28:7-108
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:28:7-108
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:28:17-105
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:28:17-105
 receiver#com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:29:7-33:18
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:29:7-33:18
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:29:17-113
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:29:17-113
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:30:11-32:27
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:30:11-32:27
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:31:15-77
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:31:15-77
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:31:23-74
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:31:23-74
 service#com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:35:7-41:17
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:35:7-41:17
 	android:exported
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:37:11-35
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:37:11-35
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:36:11-105
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:36:11-105
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:38:11-40:27
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:38:11-40:27
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:39:15-76
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:39:15-76
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:39:23-73
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:39:23-73
 activity#com.medchat.MainActivity
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:42:7-52:18
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:42:7-52:18
 	android:label
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:44:9-41
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:44:9-41
 	android:launchMode
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:46:9-40
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:46:9-40
 	android:windowSoftInputMode
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:47:9-51
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:47:9-51
 	android:configChanges
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:45:9-86
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:45:9-86
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:43:9-37
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:43:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:48:9-51:25
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:48:9-51:25
 action#android.intent.action.MAIN
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:49:13-65
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:49:13-65
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:49:21-62
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:49:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:50:13-73
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:50:13-73
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:50:23-70
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:50:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:53:7-84
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:53:7-84
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml:53:17-81
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml:53:17-81
 uses-sdk
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
 MERGED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/79cf45dff789eeca895474686f731158/flipper-network-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/79cf45dff789eeca895474686f731158/flipper-network-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/c522af7c6be754c58e463fea83cce8ce/flipper-fresco-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/c522af7c6be754c58e463fea83cce8ce/flipper-fresco-plugin-0.33.1/AndroidManifest.xml:11:5-13:41
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-firebase_app] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-firebase_app] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_app] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_app] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/app/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.multidex:multidex:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/490196c73d7d355edf6256c5fa5d120c/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/490196c73d7d355edf6256c5fa5d120c/multidex-2.0.0/AndroidManifest.xml:20:5-43
-MERGED from [:react-native-community_art] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_art] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_checkbox] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-community_checkbox] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-community_masked-view] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_masked-view] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-gesture-handler] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-push-notification] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-push-notification] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-safe-area-context] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-safe-area-context] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-screens] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64bd6117675d80834e7bb519bef20c97/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/64bd6117675d80834e7bb519bef20c97/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_art] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_art] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/art/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_checkbox] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_checkbox] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_masked-view] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] /home/dong/Downloads/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/dong/Downloads/MedChatBackup/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-push-notification] /home/dong/Downloads/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-push-notification] /home/dong/Downloads/MedChatBackup/node_modules/react-native-push-notification/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/dong/Downloads/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/dong/Downloads/MedChatBackup/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] /home/dong/Downloads/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /home/dong/Downloads/MedChatBackup/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-screens] /home/dong/Downloads/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /home/dong/Downloads/MedChatBackup/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/dong/Downloads/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/dong/Downloads/MedChatBackup/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/ce42b94ef2609d0eb3593ee654de8b9d/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.62.2] /home/dong/.gradle/caches/transforms-2/files-2.1/ce42b94ef2609d0eb3593ee654de8b9d/jetified-react-native-0.62.2/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/a1d64627529d8d421c0b27e7fdd4a3e1/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/a1d64627529d8d421c0b27e7fdd4a3e1/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] /home/dong/.gradle/caches/transforms-2/files-2.1/bbf0e9fab1af79c79ac1770ffe9175cc/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
@@ -516,24 +516,24 @@ MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/dong/.gradle/caches/transfo
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/dong/.gradle/caches/transforms-2/files-2.1/081f082dc55e78771b22b91f1dc34557/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/492fc5c27713717c844f92eef06c68a0/transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/492fc5c27713717c844f92eef06c68a0/transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
-INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:5:5-77
+ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from /home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/src/debug/AndroidManifest.xml:5:22-75
+		ADDED from /home/dong/Downloads/MedChatBackup/android/app/src/debug/AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.33.1] /home/dong/.gradle/caches/transforms-2/files-2.1/8cbc1b2bf0c81de8df306e46f3c634a1/jetified-flipper-0.33.1/AndroidManifest.xml:16:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
+ADDED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/579aadedb57581780ee73635c0aef2f4/transport-backend-cct-2.2.0/AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/579aadedb57581780ee73635c0aef2f4/transport-backend-cct-2.2.0/AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.0] /home/dong/.gradle/caches/transforms-2/files-2.1/7d2291c29c7a6f87a454b865dc2f1866/transport-runtime-2.2.0/AndroidManifest.xml:22:5-79
@@ -551,23 +551,23 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.1] /home
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /home/dong/.gradle/caches/transforms-2/files-2.1/b3216f15710b67028afac63b016b4bb9/play-services-measurement-sdk-api-17.2.1/AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from [:react-native-firebase_auth] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-76
+		ADDED from [:react-native-firebase_auth] /home/dong/Downloads/MedChatBackup/node_modules/@react-native-firebase/auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-76
 provider#com.imagepicker.FileProvider
-ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-18:20
+ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-18:20
 	android:grantUriPermissions
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-47
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-47
 	android:authorities
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-60
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-60
 	android:exported
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-37
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-37
 	android:name
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-56
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-56
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-17:58
+ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-17:58
 	android:resource
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-55
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-55
 	android:name
-		ADDED from [:react-native-image-picker] /home/dong/Downloads/Work/ReactNative/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-67
+		ADDED from [:react-native-image-picker] /home/dong/Downloads/MedChatBackup/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-67
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:20.1.6] /home/dong/.gradle/caches/transforms-2/files-2.1/b8be31169738669a8b666d08f18805cb/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:28:9-34:19
 	android:exported

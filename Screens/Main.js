@@ -30,7 +30,7 @@ function Main({ navigation }) {
     setUniqueId(id)
     GetInfo('channels/getUserChannels', id).then(resp => {
       if(resp.length>0)
-        setUserChannels(resp) 
+        setUserChannels(resp)
       setInitializing(false)
     })
     // setChannels(GetInfo('channels/getChannels', id))

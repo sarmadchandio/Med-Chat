@@ -4,43 +4,52 @@ import { List, ListItem,  Divider, Avatar } from 'react-native-elements';
 import { GiftedChat } from 'react-native-gifted-chat';
 import Fire from './Utils/Fire';
 import { cond, exp } from 'react-native-reanimated';
+import GetUserInfo from './Utils/APICalls';
 
 function Profile({navigation}){
-    const list = [
-        {
-          name: 'Asthama',
-         
-        },
-        {
-          name: 'Ear Pain',
-        },
-        {
-          name: 'Cancer',
-        },
-        {
-          name: 'Diabetes',
-        },
-        
-      ];
+    const [user, setUser] = useState()
+    const [userChannels, setUserChannels] = useState()
+    const [initializing, setInitializing] = useState(true)
+    const [image, setImage] = useState()
+    useEffect(()=>{
+        let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
+        if(!user){
+            GetUserInfo('login/profile', id).then(resp => {console.log(resp);setUser(resp); setInitializing(false)})
+        }
+        if(!userChannels){
+            GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
+        }
+        console.log("Profile Called")
+    }, [])
+
+
+    if(initializing){
+        return (
+          <View style={[styles.initial, {alignItems:'center'}]}>
+            <ActivityIndicator size={100}/>
+            <Text>Setting Up Profile...</Text>
+          </View>
+        );
+      }
+
     return(
         <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
             <ScrollView>
-               
                 <View style={{alignContent :'center'}}>
                     <Image
                         style={styles.displayprofile}
-                        source={require('../imgs/empty_profile.png')}
+                        source={user.profilePicture!='none'?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
                     />
                 </View>
-                <Text style={styles.name}>User</Text>
+                <Text style={styles.name}>{user.firstName}</Text>
                 <ListItem
-                    title="Phone Number"
+                    title={user.phoneNumber}
                     containerStyle={styles.ListRow}
                     roundAvatar
                     leftAvatar={{source : require('../imgs/phone_logo.jpeg')}}
                 />
                 <ListItem
-                    title="email"
+                    title={user.email}
                     containerStyle={styles.ListRow}
                     // onPress={() => this.onPressOptions()}
                     roundAvatar
@@ -52,7 +61,7 @@ function Profile({navigation}){
                     containerStyle={styles.ListRow}
                     // onPress={() => this.onPressOptions()}
                 />
-                <View>
+                {/* <View>
                     {
                     list.map((l, i) => (
                         <ListItem
@@ -65,7 +74,7 @@ function Profile({navigation}){
                         />
                     ))
                     }
-                </View>
+                </View> */}
                     
                 
             </ScrollView>

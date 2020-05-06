@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/7c9142c17550c92dab314dac75f37ca0/material-1.1.0/res/values-land/values-land.xml",

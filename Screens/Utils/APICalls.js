@@ -10,8 +10,9 @@ export default async function GetUserInfo(api, packet){
         })
         const respJson = await response.json()
         // console.log(`${api}:  ${respJson}`)
-        console.log(respJson)
+        // console.log(respJson)
         // The response was channel list
+        console.log("Inside APi: ", respJson)
         if(!respJson.message){
             return respJson;
             // if(api=='channels/getUserChannels'){                

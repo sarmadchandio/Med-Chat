@@ -10,7 +10,7 @@ function Login({ navigation }){
     const [phoneNumber ,setPhoneNumber]=useState('+13313107546')  //Phone Number +1 650-555-1234
     const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
     const [code, setCode] = useState('123456'); // confirmation code (phone) from the user
-    const [userName, setUserName] = useState('Fgh')
+    const [userName, setUserName] = useState('dsaa')
     const [password, setPassword] = useState('12345')
     const [user, setUser] = useState(auth().currentUser)
 

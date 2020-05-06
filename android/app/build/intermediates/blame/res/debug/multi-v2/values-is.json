@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dong/Downloads/Work/ReactNative/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
+            "outputFile": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
             "map": [
                 {
                     "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/2bf143a8a6d9cc9b01c998d0d6ca7843/play-services-base-17.1.0/res/values-is/values.xml",
