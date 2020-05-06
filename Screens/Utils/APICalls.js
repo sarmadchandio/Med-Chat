@@ -24,8 +24,9 @@ export default async function GetUserInfo(api, packet){
         }
         // Response has an error attached to it
         else{
-            console.log(`Error in ${api}: , ${respJson}`)
-            alert(response.message)
+            console.log(`Error in ${api}:`)
+            console.log(respJson.message)
+            alert(respJson.message)
         }
     }
     catch(error){

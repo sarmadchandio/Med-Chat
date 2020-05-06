@@ -8,7 +8,7 @@ import GetUserInfo from './Utils/APICalls';
 
 function Profile({navigation}){
     const [user, setUser] = useState()
-    const [userChannels, setUserChannels] = useState()
+    const [userChannels, setUserChannels] = useState([])
     const [initializing, setInitializing] = useState(true)
     const [image, setImage] = useState()
     useEffect(()=>{
@@ -16,9 +16,7 @@ function Profile({navigation}){
         if(!user){
             GetUserInfo('login/profile', id).then(resp => {console.log(resp);setUser(resp); setInitializing(false)})
         }
-        if(!userChannels){
-            GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
-        }
+        GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
         console.log("Profile Called")
     }, [])
 
@@ -61,26 +59,21 @@ function Profile({navigation}){
                     containerStyle={styles.ListRow}
                     // onPress={() => this.onPressOptions()}
                 />
-                {/* <View>
-                    {
-                    list.map((l, i) => (
+                <View>
+                    {userChannels.map((l, i) => (
                         <ListItem
-                        key={i}
-                        containerStyle={styles.ListRow}
-                        roundAvatar
-                        leftAvatar={{source : require('../imgs/logo.jpeg')}}
-                        title={l.name}
-                        bottomDivider
+                            key={i}
+                            containerStyle={styles.ListRow}
+                            roundAvatar
+                            leftAvatar={{source : require('../imgs/logo.jpeg')}}
+                            title={l.channelName}
+                            bottomDivider
                         />
-                    ))
-                    }
-                </View> */}
-                    
-                
+                    ))}
+                </View>
             </ScrollView>
         </ImageBackground>
         
-    // {/* // <Text> Profile screen{navigation.state.params.us._id}</Text> */}
     )
 }
 

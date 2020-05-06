@@ -7,13 +7,13 @@ import GetInfo from './Utils/APICalls.js'
 import { NavigationEvents } from 'react-navigation';
 
 function Main({ navigation }) {
-  
 
   const [user,setUser] =useState('')
   const [uniqueId ,setUniqueId]=useState('')
   const [userChannels , setUserChannels]= useState(null) // channels that the user has joined
   // const [count,setCount]=useState(['1','1','91','1','1','100','1','1','1','190','1','1']) // count of each channel
-  const [channels ,setChannels]=useState(['Cancer', 'Asthma', 'Diabetes' ,'Cough', 'Bood Pressure' , 'Teeth Cavity','Heart' , 'Acane','Depression' ,'Lungs Infection','Vision','Ear_Pain'])
+  // const [channels ,setChannels]=useState(['Cancer', 'Asthma', 'Diabetes' ,'Cough', 'Bood Pressure' , 'Teeth Cavity','Heart' , 'Acane','Depression' ,'Lungs Infection','Vision','Ear_Pain'])
+  const [channels ,setChannels]=useState()
   // initializing UserChannels and ChannelsList and Profile
   const [initializing, setInitializing] = useState({channelList:1, userChannels:1, profile:1})
 
@@ -30,28 +30,33 @@ function Main({ navigation }) {
     let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
     setUniqueId(id)
     GetInfo('channels/getUserChannels', id).then(resp => {
-      if(resp.length>0){
+      if(resp.length>0)
         setUserChannels(resp)
-      }
-      let res = [{"channelName":"Asthama"}, {"channelName":"Cough"}]
-      console.log(res)
-      setUserChannels(res)
+      else
+        setUserChannels([])
+      console.log(resp)
       setInitializing(prevState => {
         return {...prevState, userChannels:0}
       })
     })
-    GetInfo('channels/getChannels', id).then(resp => {
-      setChannels(resp)
-      setInitializing(prevState => {
-        return {...prevState, channelList:0}
+    if(!channels){
+      GetInfo('channels/getChannels', id).then(resp => {
+        setChannels(resp)
+        setInitializing(prevState => {
+          return {...prevState, channelList:0}
+        })
       })
-    })
-    GetInfo('login/profile', id).then(resp => {
-      setUser(resp)
-      setInitializing(prevState => {
-        return {...prevState, profile:0}
+    }
+    
+    if(!user){
+      GetInfo('login/profile', id).then(resp => {
+        setUser(resp)
+        setInitializing(prevState => {
+          return {...prevState, profile:0}
+        })
       })
-    })
+    }
+
     // setUser(GetInfo('login/profile', id))
     // setName(navigation.state.prams.name)
     
@@ -74,6 +79,29 @@ function Main({ navigation }) {
         navigation.navigate('Chat', {name: user.userName , id :uniqueId.Id , channel_name : item});
         isValiditem = true
       }
+    }
+    if(!isValiditem){
+      //pop up and ask to the user to join channel
+      Alert.alert(
+        'Oops!', 
+        'You are not a part of this channel', 
+        [
+          {text:'Cancel!', onPress:()=>console.log('Canceled')},
+          {text:'Join Now!', onPress:()=> {
+            console.log("ID: ", uniqueId.id)
+            console.log("Channel: ", item)
+            GetInfo('channels/addUserToChannel', {'userId': uniqueId.id, 'channelName': item}).then(resp=>{
+              console.log(resp)
+              GetInfo('channels/getUserChannels', uniqueId).then(response => {
+                console.log("getting channels")
+                console.log(response)
+                  setUserChannels(response)
+              })
+            })
+          }},
+        ],
+        {cancelable:true}
+      );
     }
   }
 
