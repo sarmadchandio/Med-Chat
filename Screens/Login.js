@@ -3,19 +3,19 @@ import {View, Text, Button, ScrollView, Image, ImageBackground, StyleSheet, Aler
 import { TextInput } from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
 import CodeInput from 'react-native-code-input';
-import { set } from 'react-native-reanimated';
 
 
 // navigation prop is passed down to all our screen components frfom the stack container
 function Login({ navigation }){
     // If null, no SMS has been sent
-    const [phoneNumber ,setPhoneNumber]=useState()  //Phone Number +1 650-555-1234
-    const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
-    const [code, setCode] = useState(); // confirmation code (phone) from the user '123456'
-    const [userName, setUserName] = useState() // 'dsab'
-    const [password, setPassword] = useState() // '12345'
+    const [phoneNumber ,setPhoneNumber]=useState('')  //Phone Number +1 650-555-1234
+    const [confirm, setConfirm] = useState(false);   //confirms the phone  for phone Number
+    const [code, setCode] = useState(''); // confirmation code (phone) from the user '123456'
+    const [userName, setUserName] = useState('') // 'dsab'
+    const [password, setPassword] = useState('') // '12345'
     const [initializing, setInitializing] = useState(false)
     const [loginCanceled, setLoginCanceled] = useState(false)
+    const [validPhone, setValidPhone] = useState(false)
 
     // Method to fetch our own apis
     async function LoginMongoDB(method, username=null, password=null, phone=null){
@@ -60,10 +60,12 @@ function Login({ navigation }){
         try{
             setInitializing(true)
             const verification = await auth().signInWithPhoneNumber(phoneNumber);
-            console.log(verification)
+            console.log("verf: ", verification)
             setConfirm(verification);
             setInitializing(false)
         }catch(err){
+            setInitializing(false)
+            setConfirm(null)
             let error = err
             console.log(err.Error)
             Alert.alert("Oops!", "Enter the number in the format [+][country code][subscriber number including area code] ", [{text:'UnderStood!'}], {cancelable:true})
@@ -79,10 +81,10 @@ function Login({ navigation }){
             if (conf){
                 setConfirm(false)
                 await LoginMongoDB('phone','user','pass', phoneNumber)
-                // setInitializing(false)
+                setInitializing(false)
                 // The user is signed in after verfying the confirm code.
                 // So we need to sign out the user from fire_base.
-                auth().signOut().then(console.log('sigend_out...?'))
+                // auth().signOut().then(console.log('sigend_out...?'))
             }
             else{
                 alert('Invalid Verification Code')
@@ -97,13 +99,15 @@ function Login({ navigation }){
     if(initializing && !loginCanceled){
         console.log("initial: ", initializing)
         console.log("login: ", loginCanceled)
+        console.log("code: ", confirm)
+
         return(
             <ImageBackground
                 source={require('../imgs/login_background.jpeg')}
                 style={{flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#EED6D3'}}
             >
                 <ActivityIndicator size={90} />
-                {confirm? <Text>Sending SMS...</Text>: <Text>Logging In...</Text>}
+                {confirm?<Text>Loading...</Text>: <Text>Logging In...</Text>}
                 
                 <View style={{marginTop:10, overflow:'hidden', borderRadius:50,}}>
                     <Button 
@@ -205,7 +209,7 @@ function Login({ navigation }){
                 <View style={styles.buttonview}>
                     <Button 
                     title='Back' 
-                    onPress={()=>{setConfirm(null)}} 
+                    onPress={()=>{setConfirm(null); setInitializing(null)}} 
                     color="#8155BA"/>
                 </View>
                 
