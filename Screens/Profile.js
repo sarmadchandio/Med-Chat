@@ -56,7 +56,7 @@ function Profile({route, navigation}){
                         source={user?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
                     />
                 </View>
-                <Text style={styles.name}>{user.firstName}</Text>
+                <Text style={styles.name}>{user.firstName} {user.lastName}</Text>
                 <ListItem
                     title={user.phoneNumber}
                     containerStyle={styles.ListRow}
@@ -70,7 +70,12 @@ function Profile({route, navigation}){
                     roundAvatar
                     leftAvatar={{source : require('../imgs/email.jpeg')}}
                 />
-                <Text style = {{marginTop:10,marginBottom:10}}>Joined as a patient / Doctor</Text>
+                <ListItem
+                    title={user.diseaseHistory.isPatient? 'Communi Member': 'Doctor'}
+                    containerStyle={styles.ListRow}
+                    roundAvatar
+                    leftAvatar={user.diseaseHistory.isPatient?{source : require('../imgs/patient.jpeg')}: {source : require('../imgs/doctor.jpg')}}
+                />
                 <ListItem
                     title="Channels Joined"
                     containerStyle={styles.ListRow}

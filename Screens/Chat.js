@@ -180,7 +180,7 @@ export default class Chat extends Component{
         renderSend={this.renderSend}
         // renderInputToolbar={this.renderInputToolbar}
         renderInputToolbar={this.renderInputToolbar}
-        user={ {name:this.props.route.params.name , _id:this.props.route.params.id, avatar: 'https://placeimg.com/140/140/any'} }  //change this line        
+        user={ {name:this.props.route.params.name , _id:this.props.route.params.id, avatar: this.props.route.params.url} }  //change this line        
       />
       </ImageBackground>
       </>

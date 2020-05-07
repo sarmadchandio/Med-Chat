@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import {Text ,ActivityIndicator,Image,ImageBackground,ScrollView,StyleSheet, View} from 'react-native'
 import {  ListItem } from 'react-native-elements';
 import { useFocusEffect } from '@react-navigation/native'
@@ -11,7 +11,7 @@ function Profile({route, navigation}){
 
     useFocusEffect( 
         React.useCallback(() => {
-            let id = route.params.user
+            let id = {"id" : route.params.user}
             console.log("Join with info: ",id)
             GetUserInfo('login/profile', id).then(resp => {
                 setUser(resp) 
@@ -22,14 +22,6 @@ function Profile({route, navigation}){
             GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
         }, [])
     );
-
-    // useEffect(()=>{
-    //     let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
-    //     GetUserInfo('login/profile', id).then(resp => {setDefaultUser(resp);setUser(resp); setInitializing(false)})
-    //     GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
-    //     console.log("Profile Called")
-    // }, [])
-
 
     if(initializing){
         return (
@@ -49,7 +41,7 @@ function Profile({route, navigation}){
                         source={user?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
                     />
                 </View>
-                <Text style={styles.name}>{user.firstName}</Text>
+                <Text style={styles.name}>{user.firstName} {user.lastName}</Text>
                 <ListItem
                     title={user.phoneNumber}
                     containerStyle={styles.ListRow}
