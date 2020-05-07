@@ -170,6 +170,11 @@ function Register({ navigation }){
 
         setProfile(prevProfileArr)
         setValidStates(prevValidArr)
+        validStates.forEach(state => {
+            if(!state)
+                return prevValidArr[type]
+        })
+        setValidAll(true)
         return prevValidArr[type]
     }
 
