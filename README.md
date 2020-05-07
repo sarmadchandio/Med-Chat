@@ -15,12 +15,12 @@ Save the changes (with auto format turned off) and re-build your app.
 
 ## Recommended
 1. List-deprecated-view Error: <br />
-Fix: <br />
+Fix:
 Go to node_modules/../MessageContainer.js and change <import { ListView } from 'react-native'>
 to <import ListView from 'deprecated-react-native-listview'>
 
 2. Error while updating property 'stroke'..... <br />
-Fix: <br />
+Fix: 
 Goto node_modules/react-native-progress/ and
 comment out everything except: export { default as Circle } from './Circle';
 
