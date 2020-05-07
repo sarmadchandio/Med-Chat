@@ -56,13 +56,14 @@ function Login({ navigation }){
     }
 
     // Used for PhoneAuth
-    async function signInWithPhoneNumber(phoneNumber){
+    async function signInWithPhoneNumber(){
         try{
             setInitializing(true)
+            setConfirm(true);
             const verification = await auth().signInWithPhoneNumber(phoneNumber);
             console.log("verf: ", verification)
-            setConfirm(verification);
             setInitializing(false)
+            setConfirm(verification)
         }catch(err){
             setInitializing(false)
             setConfirm(null)
@@ -109,7 +110,7 @@ function Login({ navigation }){
                 <ActivityIndicator size={90} />
                 {confirm?<Text>Loading...</Text>: <Text>Logging In...</Text>}
                 
-                <View style={{marginTop:10, overflow:'hidden', borderRadius:50,}}>
+                <View style={{marginTop:10, overflow:'hidden', borderRadius:50, width:'40%'}}>
                     <Button 
                         title={confirm?'Back': 'Cancel Login'}
                         onPress={()=>{setInitializing(false); setLoginCanceled(true); setConfirm(false)}} 
@@ -160,18 +161,23 @@ function Login({ navigation }){
                             />
                     </View>
                     <TextInput 
-                        placeholder='phone("+16505551234")'
+                        placeholder='phone +92[10 digits here]'
                         value= {phoneNumber} 
-                        onChangeText = {Text=>setPhoneNumber(Text)} 
+                        onChangeText = {Text=>{setPhoneNumber(Text); const check = /\+92[0-9]{10}$/; setValidPhone(check.test(Text))}} 
                         style={styles.inputBox}
                         />
                     <View style={styles.buttonview}>
                         <Button
                             title="Sign In With Phone Number"
-                            onPress={() => signInWithPhoneNumber(phoneNumber)}
+                            onPress={() => signInWithPhoneNumber()}
                             color="#8155BA"
+                            disabled={!validPhone}
                         />
                     </View>
+                    {!validPhone?
+                        <Text style={{textAlign:'center'}}>Enter a valid phone number to continue!</Text>
+                        :null
+                    }
                 </ScrollView>
             </ImageBackground>
 

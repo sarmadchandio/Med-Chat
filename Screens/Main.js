@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect} from 'react';
-import { TouchableOpacity, StyleSheet, ActivityIndicator, Text, View, Alert, ScrollView, ImageBackground } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet, ActivityIndicator, Text, View, Alert, ScrollView, ImageBackground } from 'react-native';
 import { Icon } from 'react-native-elements'
 import { useFocusEffect } from '@react-navigation/native'
 
@@ -66,8 +66,8 @@ function Main({ navigation }) {
       <ImageBackground
         source={require('../imgs/login_background.jpeg')}
         style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-        <ActivityIndicator size={90}/>
-        <Text>Please Wait while we are fetching the data...</Text>
+        <ActivityIndicator size={90} color='#8155BA'/>
+        <Text style={{textAlign:'center'}}>Please Wait while we are fetching the data...</Text>
       </ImageBackground>
     );
   }
@@ -94,6 +94,8 @@ function Main({ navigation }) {
             // We need to add user to the channel
             GetInfo('channels/addUserToChannel', {'userId': uniqueId.id, 'channelName': item}).then(resp=>{
               GetInfo('channels/getUserChannels', uniqueId).then(response => {
+                  console.log("UserChannels: ", response)
+                  console.log(userChannels.includes({"channelName": "Teetch Cavity"}))
                   setUserChannels(response)
               })
               // now we need to update channel count as well
@@ -114,7 +116,11 @@ function Main({ navigation }) {
   // can render only Even Length Channels
   return (
     <ScrollView >
-      <View style={styles.initial}>
+        <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.initial}>
+          <Image 
+              style = {styles.imagestyle}
+              source={require('../imgs/channel_display.jpeg')}
+          />
         {channels.map(item=>(
           // U just needed to move this <VIEW> inside the map function. Warna everything will be considered a single button
           <View style={styles.buttonview}>
@@ -134,7 +140,7 @@ function Main({ navigation }) {
                 <View>
                   <Icon
                     reverse
-                    name='ios-heart'
+                    name={userChannels.includes({"channelName" :item.channelName})?'ios-heart':'ios-heart-dislike'}
                     type='ionicon'
                     color='#ffffff00'
                     size= {18}
@@ -145,7 +151,7 @@ function Main({ navigation }) {
             </TouchableOpacity>
           </View>
         ))}
-      </View>
+      </ImageBackground>
   </ScrollView>
   );
 }
@@ -201,7 +207,19 @@ const styles = StyleSheet.create({
     fontSize:14,
     textAlign:'center',
     color: 'white'
-  }
+  },
+  image: {
+    flex: 1,
+    resizeMode: "stretch",
+  },
+  imagestyle : {
+    width:'100%',
+    height:150,
+    // marginLeft:10,
+    // marginRight:10,
+    // marginTop: 10,
+    // borderRadius:50,
+},
 
 })
 

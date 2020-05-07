@@ -3,12 +3,12 @@ import {View, Text, Button, StyleSheet, Image, ImageBackground, ScrollView, Aler
 import { TextInput } from 'react-native-gesture-handler';
 import ImagePicker from 'react-native-image-picker';
 import CheckBox from '@react-native-community/checkbox';
-import MultiSelect from 'react-native-multiple-select';
+// import MultiSelect from 'react-native-multiple-select';
 
 import { Circle } from 'react-native-progress'; // https://www.npmjs.com/package/react-native-progress
 
 import { storage } from './Utils/firebase_auth'
-import diseaseList from './Utils/INITIALIZE_DISEASES.js'
+// import diseaseList from './Utils/INITIALIZE_DISEASES.js'
 
 function Register({ navigation }){
     // String array ==> fName, lName, uName, password, phone, email, bday --> 
@@ -348,6 +348,12 @@ function Register({ navigation }){
                             onPress={()=> ValidateAndSend()}
                             // disabled={!validAll}
                         />
+                    </View>
+                    <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+                        <Text>By Registering you agree to our </Text>
+                        <Text onPress={()=>navigation.navigate('Terms')} style={{color:'#0000ff'}}>    
+                            Terms and Conditions
+                        </Text>
                     </View>
                 </View>
             </ScrollView>

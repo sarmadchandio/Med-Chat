@@ -192,10 +192,6 @@
         "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/fac11e4053b0ee70596ac6ed52e12b3e/appcompat-1.1.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/dong/Downloads/MedChatBackup/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_radio.xml.flat",
         "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/fac11e4053b0ee70596ac6ed52e12b3e/appcompat-1.1.0/res/layout/abc_list_menu_item_radio.xml"
     },
@@ -2536,12 +2532,20 @@
         "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/fac11e4053b0ee70596ac6ed52e12b3e/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
+        "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher1.png.flat",
+        "source": "/home/dong/Downloads/MedChatBackup/android/app/src/main/res/mipmap-hdpi/ic_launcher1.png"
+    },
+    {
         "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/7c9142c17550c92dab314dac75f37ca0/material-1.1.0/res/drawable-hdpi-v4/design_ic_visibility_off.png"
     },
     {
         "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
         "source": "/home/dong/.gradle/caches/transforms-2/files-2.1/fac11e4053b0ee70596ac6ed52e12b3e/appcompat-1.1.0/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round1.png.flat",
+        "source": "/home/dong/Downloads/MedChatBackup/android/app/src/main/res/mipmap-hdpi/ic_launcher_round1.png"
     },
     {
         "merged": "/home/dong/Downloads/MedChatBackup/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",

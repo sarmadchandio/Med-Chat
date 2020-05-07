@@ -11,8 +11,8 @@ import Chat from '../Screens/Chat';
 import Profile from '../Screens/Profile';
 import OtherProfile from '../Screens/OtherProfile';
 import ChannelProfile from '../Screens/ChannelProfile'
-import LaunchScreen from '../Screens/LaunchScreen'
-import HomeScreen from '../Screens/HomeScreen'
+import Terms from '../Screens/Terms'
+// import HomeScreen from '../Screens/HomeScreen'
 
 // navigation prop is passed down to all our screen components.
 const Tab = createMaterialTopTabNavigator();
@@ -55,7 +55,7 @@ function MyNavigator(){
                     options={{title:'Welcome To MedChat'}} 
                 /> */}
                 <HomeStack.Screen name='Login' component={Login} />
-                <HomeStack.Screen name='Main' component={MyTabs} options={{title: 'Sign Out'}}/>
+                <HomeStack.Screen name='Main' component={MyTabs} options={{title: 'Main'}}/>
                 <HomeStack.Screen name='Register' component={Register} />
                 <HomeStack.Screen 
                     name='Chat' 
@@ -71,6 +71,7 @@ function MyNavigator(){
                         ) 
                    })}
                 />
+                <HomeStack.Screen name='Terms' component={Terms} />
                 <HomeStack.Screen name='OtherProfile' component={OtherProfile} />
                 <HomeStack.Screen name='ChannelProfile' component={ChannelProfile} />
             </HomeStack.Navigator>
