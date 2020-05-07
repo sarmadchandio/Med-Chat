@@ -281,7 +281,7 @@ function Register({ navigation }){
                     style={validStates[4]?styles.inputBox:styles.error}
                 />
                 <TextInput 
-                    placeholder='* Email * (Optional)'
+                    placeholder='name@domain.com'
                     value={profile[5]}
                     onChangeText={(text)=> validateInput(text, 5)}
                     style={validStates[5]?styles.inputBox:styles.error}
