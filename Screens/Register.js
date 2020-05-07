@@ -346,7 +346,7 @@ function Register({ navigation }){
                             title='Register'
                             color= '#8155BA'
                             onPress={()=> ValidateAndSend()}
-                            // disabled={!validAll}
+                            disabled={!validAll}
                         />
                     </View>
                     <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
