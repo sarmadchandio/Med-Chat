@@ -2,40 +2,38 @@ import React, { useState, useEffect, Component,setState } from 'react';
 import {Text, Button ,ActivityIndicator} from 'react-native'
 import { GiftedChat, Bubble, Send, InputToolbar, Composer } from 'react-native-gifted-chat';
 import Fire from './Utils/Fire';
-import { cond } from 'react-native-reanimated';
 // import firebase from 'firebase';
 import PushNotification from 'react-native-push-notification';
+import API from './Utils/APICalls'
 
 GiftedChat.renderLoading=true
 
 import {  StyleSheet ,View, ImageBackground} from 'react-native';
 
-export default class Chat extends Component<props>{
+export default class Chat extends Component{
   
-  static navigationOptions = ({route,  navigation }) => {  
+  static navigationOptions = ({ navigation, route}) => {  
     return {
-        title: rout.params.channel_name,  
-        
+        title: 'route.params.channel_name',  
         headerStyle: {  
                 backgroundColor: '#FCF4E4',  
         },  
         headerTitleStyle: {  
-              // fontWeight: 'bold',
+              fontWeight: 'bold',
               color: "#8155BA"  
         },
         // headerTintColor: '#fff',
-        headerRight: () => (
-          <View style={styles.buttonView}>
+        
+        headerRight: (
           <Button
-            onPress={() => navigation.navigate('Channel_Profile',{channel_name:navigation.state.params.channel_name})}
+            onPress={() => alert('This is a button!')}
             title="Info"
-            color="#8155BA"
-            
+            color="#fff"
           />
-          </View>
-        )
+        ),
     };  
   };  
+
 
   state = {
     messages: [],
@@ -61,7 +59,7 @@ export default class Chat extends Component<props>{
       popInitialNotification: true,
       requestPermissions: true,
     });
-  
+    this.LeaveChannel = this.LeaveChannel.bind(this)
   }
 
   testPush=()=>{
@@ -76,16 +74,17 @@ export default class Chat extends Component<props>{
     GiftedChat.renderLoading=true
     console.log(this.props.navigation)
     console.log(this.props.route)
-    this.database=this.props.route.params.channel_name
-    this.user=this.props.route.params.name
-    this.unique_id =this.props.route.params.id
+    this.state.database=this.props.route.params.channel_name
+    this.state.user=this.props.route.params.user
+    this.state.unique_id =this.props.route.params.id
     
     // Fire.shared.select_data_base(this.database)
     Fire.shared.select_data_base('messages_1_1')
     
     Fire.shared.on(message =>this.setState(previousState => ({
+      ...previousState,
       messages: GiftedChat.append(previousState.messages, message),
-      loading:  false
+      loading : false
     })),this.testPush());
   
   }
@@ -120,9 +119,9 @@ export default class Chat extends Component<props>{
   renderSend(props) {
     return (
       <Send 
-      {...props} 
-      textStyle={{ color: '#8155BA' }} 
-      label={'Send'}
+        {...props} 
+        textStyle={{ color: '#8155BA' }} 
+        label={'Send'}
       />
     );
   }
@@ -130,25 +129,45 @@ export default class Chat extends Component<props>{
   renderInputToolbar(props){
     
     return ( 
-    <InputToolbar 
-      {...props} 
-      containerStyle={{ backgroundColor: "#FCF4E4", }} 
-      renderComposer={props1 => ( <Composer {...props1} 
-        textInputStyle={{ color: "black"}} /> )}
-         /> 
+      <InputToolbar 
+        {...props} 
+        containerStyle={{ backgroundColor: "#FCF4E4", }} 
+        renderComposer={props1 => ( <Composer {...props1} 
+          textInputStyle={{ color: "black"}} /> )}
+      /> 
     );
 }
+  LeaveChannel(){
+    console.log("ID LeaveChannel: ", this.props.route.params.id)
+    console.log(this.props.route.params.channel_name)
+    let packet = {
+      'userId' : this.props.route.params.id,
+      'channelName' : this.props.route.params.channel_name
+    }
+    console.log(packet)
+    // this.props.navigation.goBack()
+    API('channels/leaveChannel', packet).then(() => this.props.navigation.goBack())
+  }
 
 
   render() {
+    // console.log(this.state.loading)
+    // if(this.state.loading){
+    //   return (
+    //     <View style={styles.loadingContainer}>
+    //       <ActivityIndicator size='large' color='#8155BA' />
+    //     </View>
+    //   );
+    // }
     return (
       <>
       <View style={styles.buttonView}>
-      <Button title='press ma' onPress={()=>this.testPush() } color="#8155BA"/>
+        <Button title='press ma' onPress={()=>this.testPush() } color="#8155BA"/>
+        <Button title='Leave Channel' onPress={() => this.LeaveChannel()} />
       </View>
       <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
       <GiftedChat
-        renderLoading={this.renderLoading}x
+        renderLoading={this.renderLoading}
         messages={this.state.messages}
         onSend={Fire.shared.send}
         onPressAvatar={(user)=>this.props.navigation.navigate('Profile',{us:user})}
@@ -179,10 +198,7 @@ const styles = StyleSheet.create({
 
   },
   buttonView: {
-    borderBottomLeftRadius:50,
-    borderTopLeftRadius:50,
-    borderBottomRightRadius:50,
-    borderTopRightRadius:50,
+    borderRadius: 50,
     // overflow:'hidden',
     // width:'80%',
     // marginLeft:40,

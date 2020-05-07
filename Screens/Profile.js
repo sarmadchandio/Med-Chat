@@ -1,21 +1,38 @@
-import React, { useState, useEffect, Component } from 'react';
-import {Text, Button ,ActivityIndicator,Image,ImageBackground,ScrollView,StyleSheet, View} from 'react-native'
-import { List, ListItem,  Divider, Avatar } from 'react-native-elements';
-import { GiftedChat } from 'react-native-gifted-chat';
-import Fire from './Utils/Fire';
-import { cond, exp } from 'react-native-reanimated';
+import React, { useState, useEffect, useCallback } from 'react';
+import {Text ,ActivityIndicator,Image,ImageBackground,ScrollView,StyleSheet, View} from 'react-native'
+import {  ListItem } from 'react-native-elements';
+import { useFocusEffect } from '@react-navigation/native'
 import GetUserInfo from './Utils/APICalls';
 
-function Profile({navigation}){
+function Profile({route, navigation}){
+    const [defaultUser, setDefaultUser] = useState()
     const [user, setUser] = useState()
     const [userChannels, setUserChannels] = useState([])
     const [initializing, setInitializing] = useState(true)
-    const [image, setImage] = useState()
+
+    useFocusEffect( 
+        React.useCallback(() => {
+            let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
+            // console.log(navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params)
+            // console.log(id)
+            // This means the chat screen has sent an Id to check it's properties.
+            
+            // console.log("came from Chat Screen")
+            // setInitializing(true)
+            // console.log("UserChannells: ", userChannels)
+            GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
+            // GetUserInfo('login/profile', id).then(resp => {console.log(resp);setUser(resp); setInitializing(false)})
+            return () => {
+                console.log(defaultUser)
+                // setUser(defaultUser)
+                console.log("leaving screen")
+            }
+        }, [])
+    );
+
     useEffect(()=>{
         let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
-        if(!user){
-            GetUserInfo('login/profile', id).then(resp => {console.log(resp);setUser(resp); setInitializing(false)})
-        }
+        GetUserInfo('login/profile', id).then(resp => {setDefaultUser(resp);setUser(resp); setInitializing(false)})
         GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
         console.log("Profile Called")
     }, [])
@@ -36,7 +53,7 @@ function Profile({navigation}){
                 <View style={{alignContent :'center'}}>
                     <Image
                         style={styles.displayprofile}
-                        source={user.profilePicture!='none'?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
+                        source={user?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
                     />
                 </View>
                 <Text style={styles.name}>{user.firstName}</Text>
@@ -72,8 +89,7 @@ function Profile({navigation}){
                     ))}
                 </View>
             </ScrollView>
-        </ImageBackground>
-        
+        </ImageBackground>   
     )
 }
 
@@ -81,6 +97,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         resizeMode: "cover",
+        backgroundColor:'#EED6D3',
     },
     displayprofile: {
         // borderColor: mainColor,
@@ -101,8 +118,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#CCC',
         backgroundColor: '#FBF1E5'
-      },
-    
+      },  
 })
 
 export default Profile;

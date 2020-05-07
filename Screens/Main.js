@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect, Component } from 'react';
-import { TouchableOpacity, StyleSheet, ActivityIndicator, Text, TextInput, View, Alert, Button, ScrollView } from 'react-native';
+import React, { useState, useEffect} from 'react';
+import { TouchableOpacity, StyleSheet, ActivityIndicator, Text, View, Alert, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements'
+import { useFocusEffect } from '@react-navigation/native'
 
 import GetInfo from './Utils/APICalls.js'
-import { NavigationEvents } from 'react-navigation';
 
 function Main({ navigation }) {
 
@@ -18,12 +18,14 @@ function Main({ navigation }) {
   const [initializing, setInitializing] = useState({channelList:1, userChannels:1, profile:1})
 
 
+  useFocusEffect( 
+    React.useCallback(() => {
+        let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
+        GetInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
+    }, [])
+  );
+
   useEffect(()=>{
-    // handle all hooks here
-    // name hook
-    // unique id hook
-    // each channel count how many members are there
-    // list of channelse which user have joined 
     // console.log(navigation)
     console.log('effect------------ caled')
     // Goes to second screen in HomeStack and takes its params. Params passed from login screen going to main
@@ -76,7 +78,7 @@ function Main({ navigation }) {
     for(let i=0; i<userChannels.length; i++){
       if(userChannels[i].channelName == item){
         //Join Channel
-        navigation.navigate('Chat', {name: user.userName , id :uniqueId.Id , channel_name : item});
+        navigation.navigate('Chat', {name: user.username, id :uniqueId.id , channel_name : item, url:user.pictureProfile});
         isValiditem = true
       }
     }
@@ -109,7 +111,7 @@ function Main({ navigation }) {
   return (
     <ScrollView >
       <View style={styles.initial}>
-        {channels.map((item, index)=>(
+        {channels.map(item=>(
           // U just needed to move this <VIEW> inside the map function. Warna everything will be considered a single button
           <View style={styles.buttonview}>
             <TouchableOpacity onPress={()=>JoinChannel(item.channelName)} style={styles.channel}>
@@ -130,7 +132,7 @@ function Main({ navigation }) {
                     reverse
                     name='ios-heart'
                     type='ionicon'
-                    color='#8155BA'
+                    color='#ffffff00'
                     size= {18}
                   />
                 </View>

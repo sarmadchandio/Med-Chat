@@ -1,13 +1,14 @@
 import React, { useState, useEffect, Component } from 'react';
-import {View, Text, Button, ScrollView, Image, ImageBackground, StyleSheet} from 'react-native';
+import {View, Text, Button, ScrollView, Image, ImageBackground, StyleSheet, Alert} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
+import CodeInput from 'react-native-code-input';
 
 
 // navigation prop is passed down to all our screen components frfom the stack container
 function Login({ navigation }){
     // If null, no SMS has been sent
-    const [phoneNumber ,setPhoneNumber]=useState('+13313107546')  //Phone Number +1 650-555-1234
+    const [phoneNumber ,setPhoneNumber]=useState('+16505551234')  //Phone Number +1 650-555-1234
     const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
     const [code, setCode] = useState('123456'); // confirmation code (phone) from the user
     const [userName, setUserName] = useState('dsaa')
@@ -57,7 +58,9 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
             console.log(verification)
             setConfirm(verification);
         }catch(err){
-            alert(err)
+            let error = err
+            console.log(err.Error)
+            Alert.alert("Oops!", "Enter the number in the format [+][country code][subscriber number including area code] ", [{text:'UnderStood!'}], {cancelable:true})
             console.log('signInPhoneERR: ', err)
         }
     }
@@ -92,7 +95,6 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
         console.log(user)
         return(
             <View style={styles.initial}>
-                
                 <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
                     <ScrollView>
                         <Image 
@@ -155,14 +157,44 @@ async function LoginMongoDB(method, username=null, password=null, phone=null){
     }
     // Only phone is authentic 
     return(
-        // If the user is already logged IN? re route to HomeScreen
-        // CallHome Screen here and do all this in HomeScreen
-        <View>
-            <Text>Enter the code below!</Text>
-            <TextInput placeholder = 'Enter the code' value={code} onChangeText={text=>setCode(text)}/>
-            <Button title = 'Submit code' onPress={()=>confirmCode() }/>
-            <Button title='Back' onPress={()=>{setConfirm(null)}} />
-        </View>
+        <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
+            <View style={styles.initial}>
+                
+                <Image 
+                            style = {styles.imagestyle}
+                            source={require('../imgs/logo.jpeg')}
+                        />
+                <Text style ={{textAlign:'center'}}>Enter the code we sent you via SMS to continue!</Text>
+                {/* <TextInput placeholder = 'Enter the code'  onChangeText={text=>setCode(text)}/> */}
+                
+                <CodeInput
+                    // ref="codeInputRef1"
+                    secureTextEntry
+                    borderType={'underline'}
+                    codeLength={4}
+                    space={40}
+                    size={40}
+                    inputPosition='left'
+                    activeColor='purple'
+                    inactiveColor='#CCC'
+                    onFulfill={(text) => setCode(text)}
+                    containerStyle={{ marginLeft:40,marginTop:30}}
+                />
+                </View>
+                <View style={styles.buttonview}>
+                <Button 
+                    title = 'Submit code' 
+                    onPress={()=>confirmCode() } 
+                    color="#8155BA"/>
+                </View>
+                
+                <View style={styles.buttonview}>
+                <Button title='Back' onPress={()=>{setConfirm(null)}} color="#8155BA"/>
+                </View>
+                
+                </ImageBackground>
+        
+        //  </ImageBackground>
     )
 }
 
@@ -170,11 +202,10 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         resizeMode: "stretch",
-        justifyContent: "center"
+        // justifyContent: "center"
       },
     inputBox : {
         marginTop:10,
-        // justifyContent:'center',
         borderBottomWidth:1,
         borderBottomColor:'#A49393',
     },
@@ -194,9 +225,7 @@ const styles = StyleSheet.create({
         marginLeft:145,
         marginTop: 10
     },
-    // separator: {
-    //     marginVertical: 0,
-    //   },
+
     buttonview: {
         borderRadius: 50,
         overflow:'hidden',
@@ -204,6 +233,15 @@ const styles = StyleSheet.create({
         marginLeft:40,
         marginBottom:10,
         marginTop: 20
+    },
+    buttonPhone: {
+        borderRadius: 50,
+        overflow:'hidden',
+        width:'80%',
+        marginLeft:40,
+        marginBottom:10,
+        marginTop: 50,
+        borderBottomColor:'black'
     }
 })
 

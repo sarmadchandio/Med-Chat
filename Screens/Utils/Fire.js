@@ -36,6 +36,7 @@ class Fire {
 
   on = callback =>{
     this.ref_database().on('child_added', snapshot => callback(this.parse(snapshot)));
+    console.log('message sent22')
   }
   
 
