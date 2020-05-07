@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect} from 'react';
-import { TouchableOpacity, StyleSheet, ActivityIndicator, Text, View, Alert, ScrollView } from 'react-native';
+import { TouchableOpacity, StyleSheet, ActivityIndicator, Text, View, Alert, ScrollView, ImageBackground } from 'react-native';
 import { Icon } from 'react-native-elements'
 import { useFocusEffect } from '@react-navigation/native'
 
@@ -27,7 +27,6 @@ function Main({ navigation }) {
 
   useEffect(()=>{
     // console.log(navigation)
-    console.log('effect------------ caled')
     // Goes to second screen in HomeStack and takes its params. Params passed from login screen going to main
     let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
     setUniqueId(id)
@@ -36,7 +35,6 @@ function Main({ navigation }) {
         setUserChannels(resp)
       else
         setUserChannels([])
-      console.log(resp)
       setInitializing(prevState => {
         return {...prevState, userChannels:0}
       })
@@ -66,10 +64,12 @@ function Main({ navigation }) {
   
   if(initializing.channelList || initializing.profile || initializing.userChannels){
     return (
-      <View style={[styles.initial, {alignItems:'center'}]}>
-        <ActivityIndicator size={100}/>
+      <ImageBackground
+        source={require('../imgs/login_background.jpeg')}
+        style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+        <ActivityIndicator size={90}/>
         <Text>Please Wait while we are fetching the data...</Text>
-      </View>
+      </ImageBackground>
     );
   }
 
@@ -93,10 +93,7 @@ function Main({ navigation }) {
             console.log("ID: ", uniqueId.id)
             console.log("Channel: ", item)
             GetInfo('channels/addUserToChannel', {'userId': uniqueId.id, 'channelName': item}).then(resp=>{
-              console.log(resp)
               GetInfo('channels/getUserChannels', uniqueId).then(response => {
-                console.log("getting channels")
-                console.log(response)
                   setUserChannels(response)
               })
             })

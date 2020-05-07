@@ -48,7 +48,7 @@ function MyNavigator(){
               }}
             >
                 <HomeStack.Screen name='Login' component={Login} />
-                <HomeStack.Screen name='Main' component={MyTabs} />
+                <HomeStack.Screen name='Main' component={MyTabs} options={{title: 'Sign Out'}}/>
                 <HomeStack.Screen name='Register' component={Register} />
                 <HomeStack.Screen name='Chat' component={Chat} />
                 <HomeStack.Screen name='OtherProfile' component={OtherProfile} />

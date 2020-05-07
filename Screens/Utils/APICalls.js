@@ -1,5 +1,4 @@
 export default async function GetUserInfo(api, packet){
-    console.log("Packet: ", packet)
     try{
         const response = await fetch('https://medchatse.herokuapp.com/'+api, {
         method: 'POST',

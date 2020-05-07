@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import {Text ,ActivityIndicator,Image,ImageBackground,ScrollView,StyleSheet, View} from 'react-native'
 import {  ListItem } from 'react-native-elements';
 import { useFocusEffect } from '@react-navigation/native'
-import GetUserInfo from './Utils/APICalls';
+import GetUserInfo from './Utils/APICalls'; // This API call is used fetch data from backend
 
 function Profile({route, navigation}){
     const [defaultUser, setDefaultUser] = useState()
@@ -10,26 +10,16 @@ function Profile({route, navigation}){
     const [userChannels, setUserChannels] = useState([])
     const [initializing, setInitializing] = useState(true)
 
+    // Channels will be updated each time screen comes in focus. 
+    // Need this because User can leave and join channels at will.
     useFocusEffect( 
         React.useCallback(() => {
             let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
-            // console.log(navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params)
-            // console.log(id)
-            // This means the chat screen has sent an Id to check it's properties.
-            
-            // console.log("came from Chat Screen")
-            // setInitializing(true)
-            // console.log("UserChannells: ", userChannels)
             GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
-            // GetUserInfo('login/profile', id).then(resp => {console.log(resp);setUser(resp); setInitializing(false)})
-            return () => {
-                console.log(defaultUser)
-                // setUser(defaultUser)
-                console.log("leaving screen")
-            }
         }, [])
     );
 
+    // The profile will be setup in background upon Login.
     useEffect(()=>{
         let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
         GetUserInfo('login/profile', id).then(resp => {setDefaultUser(resp);setUser(resp); setInitializing(false)})
@@ -38,6 +28,8 @@ function Profile({route, navigation}){
     }, [])
 
 
+    // If the user turns to screens and the profile has not initialized!
+    // Activity Indicator will be rendered
     if(initializing){
         return (
           <View style={[styles.initial, {alignItems:'center'}]}>
@@ -66,7 +58,6 @@ function Profile({route, navigation}){
                 <ListItem
                     title={user.email}
                     containerStyle={styles.ListRow}
-                    // onPress={() => this.onPressOptions()}
                     roundAvatar
                     leftAvatar={{source : require('../imgs/email.jpeg')}}
                 />
@@ -79,7 +70,6 @@ function Profile({route, navigation}){
                 <ListItem
                     title="Channels Joined"
                     containerStyle={styles.ListRow}
-                    // onPress={() => this.onPressOptions()}
                 />
                 <View>
                     {userChannels.map((l, i) => (

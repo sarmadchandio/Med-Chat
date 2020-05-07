@@ -108,7 +108,7 @@ function Register({ navigation }){
                 console.log("JSON returned: ", respJson)
                 alert(respJson.message)
                 if(respJson.message == "Registered Succesfully!"){
-                    // navigation.pop() // will move back to Login Screen after a succesful Registration
+                    navigation.goBack() // will move back to Login Screen after a succesful Registration
                 }
             }catch(err){
                 console.log("RegisterApi Err", err)
@@ -221,148 +221,149 @@ function Register({ navigation }){
 
     // const { selectedItems } = this.state;
     return(
-        <View>
+        
+        <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
             <ScrollView>
-            <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
-                    <Text style={{color:"#8155BA", fontSize:20, fontStyle:'normal'}}>Welcome to MedChat </Text>
-                    <View style={{ justifyContent: 'center', alignItems: 'center'}}>
-                        {imageUploading?
-                            <Circle 
-                                size={100} 
-                                progress={progress}
-                                showsText={true}
-                                color={'8155BA'}
-                            />
-                            :
-                            <Image
-                                style={{width:100, height:100, borderRadius:100, resizeMode:'cover'}} 
-                                source={pic? {uri : pic.uri} : require('../imgs/empty_profile.png')}
-                            />
-                            
-                        }
+                <Text style={{color:"#8155BA", fontSize:20, fontStyle:'normal', alignSelf:'center'}}>Welcome to MedChat </Text>
+                <View style={{ justifyContent: 'center', alignItems: 'center'}}>
+                    {imageUploading?
+                        <Circle 
+                            size={100} 
+                            progress={progress}
+                            showsText={true}
+                            color={'8155BA'}
+                        />
+                        :
+                        <Image
+                            style={{width:100, height:100, borderRadius:100, resizeMode:'cover'}} 
+                            source={pic? {uri : pic.uri} : require('../imgs/empty_profile.png')}
+                        />
                         
-                        
-                        <View style={styles.buttonView}>
-                            <Button
-                                color= '#8155BA'
-                                onPress={()=>UploadImage()}
-                                title={imageUploading? 'Uploading Image...': 'Select Image'}
-                                disabled={imageUploading}
-                            />
-                        </View>
-                    </View>
-                    <TextInput
-                        placeholder='First Name (letters only)'
-                        value={profile[0]} 
-                        onChangeText={(text)=> validateInput(text, 0)}
-                        style={validStates[0]?styles.inputBox:styles.error}
-                    />
-                    <TextInput
-                        placeholder='Last Name (letters only)'
-                        value={profile[1]}
-                        onChangeText={(text)=> validateInput(text, 1)}
-                        style={validStates[1]?styles.inputBox:styles.error}
-                    />
-                    <TextInput 
-                        placeholder='User Name (start with a letter, can contain alphanumeric afterwards)' 
-                        value={profile[2]}
-                        onChangeText={(text)=> validateInput(text, 2)}
-                        style={validStates[2]?styles.inputBox:styles.error}
-                    />
-                    <TextInput 
-                        placeholder='Password (Atleast 5 digits long)' 
-                        secureTextEntry={true} 
-                        value={profile[3]}
-                        onChangeText={(text)=> validateInput(text, 3)}
-                        style={validStates[3]?styles.inputBox:styles.error}
-                    />
-                    <TextInput 
-                        placeholder='Phone Number (+92[10 more digits])' 
-                        value={profile[4]}
-                        onChangeText={(text)=> validateInput(text, 4)}
-                        style={validStates[4]?styles.inputBox:styles.error}
-                    />
-                    <TextInput 
-                        placeholder='* Email * (Optional)'
-                        value={profile[5]}
-                        onChangeText={(text)=> validateInput(text, 5)}
-                        style={validStates[5]?styles.inputBox:styles.error}
-                    />
-                    <TextInput 
-                        placeholder='Birth Day (yyyy-mm-dd)'
-                        value={profile[6]}
-                        onChangeText={(text)=> validateInput(text, 6)}
-                        style={validStates[6]?styles.inputBox:styles.error}
-                    />
+                    }
                     
-                    <Text style={{color:"#8155BA",textAlign:'left'}}>   Join the community as:</Text>
-                    <View style={{ flexDirection: 'row',marginLeft:10,marginBottom:10}}>
-                        <CheckBox checkedColor='red' value={userType[0]} onChange={() => SelectUserType(0)} />
-                        <Text style={{marginTop: 5,color:"#8155BA",marginRight:70}}>Doctor</Text>
-                        <CheckBox value={userType[1]} onChange={() => SelectUserType(1)} />
-                        <Text style={{marginTop: 5,color:"#8155BA"}}>Patient</Text>
+                    
+                    <View style={styles.buttonView}>
+                        <Button
+                            color= '#8155BA'
+                            onPress={()=>UploadImage()}
+                            title={imageUploading? 'Uploading Image...': 'Select Image'}
+                            disabled={imageUploading}
+                        />
                     </View>
+                </View>
+                <TextInput
+                    placeholder='First Name (letters only)'
+                    value={profile[0]} 
+                    onChangeText={(text)=> validateInput(text, 0)}
+                    style={validStates[0]?styles.inputBox:styles.error}
+                />
+                <TextInput
+                    placeholder='Last Name (letters only)'
+                    value={profile[1]}
+                    onChangeText={(text)=> validateInput(text, 1)}
+                    style={validStates[1]?styles.inputBox:styles.error}
+                />
+                <TextInput 
+                    placeholder='User Name (start with a letter, can contain alphanumeric afterwards)' 
+                    value={profile[2]}
+                    onChangeText={(text)=> validateInput(text, 2)}
+                    style={validStates[2]?styles.inputBox:styles.error}
+                />
+                <TextInput 
+                    placeholder='Password (Atleast 5 digits long)' 
+                    secureTextEntry={true} 
+                    value={profile[3]}
+                    onChangeText={(text)=> validateInput(text, 3)}
+                    style={validStates[3]?styles.inputBox:styles.error}
+                />
+                <TextInput 
+                    placeholder='Phone Number (+92[10 more digits])' 
+                    value={profile[4]}
+                    onChangeText={(text)=> validateInput(text, 4)}
+                    style={validStates[4]?styles.inputBox:styles.error}
+                />
+                <TextInput 
+                    placeholder='* Email * (Optional)'
+                    value={profile[5]}
+                    onChangeText={(text)=> validateInput(text, 5)}
+                    style={validStates[5]?styles.inputBox:styles.error}
+                />
+                <TextInput 
+                    placeholder='Birth Day (yyyy-mm-dd)'
+                    value={profile[6]}
+                    onChangeText={(text)=> validateInput(text, 6)}
+                    style={validStates[6]?styles.inputBox:styles.error}
+                />
+                
+                {/* <Text style={{color:"#8155BA",textAlign:'left'}}>   Join the community as:</Text> */}
+                <View style={{ flexDirection: 'row', margin:10}}>
+                    <CheckBox checkedColor='red' value={userType[0]} onChange={() => SelectUserType(0)} />
+                    <Text style={{marginTop: 5,color:"#8155BA",marginRight:70}}>
+                        Doctor:     Contribute to the community
+                    </Text>
+                </View>
+                <View style={{ flexDirection: 'row', margin:10}}>
+                    <CheckBox value={userType[1]} onChange={() => SelectUserType(1)} />
+                    <Text style={{marginTop: 5,color:"#8155BA"}}>
+                        Member:   Learn from the community
+                    </Text>
+                </View>
 
-                    {/* <View style={{ flex: 1 }}>
-                        <MultiSelect
-                        hideTags
-                        hideDropdown
-                        items={diseaseList}
-                        uniqueKey="id"
-                        ref={(component) =>  setMultiSelect(component)}
-                        onSelectedItemsChange={ items =>  setSelectedDiseases(items)}
-                        selectedItems={selectedDiseases}
-                        selectText="Diesease channels you want to join"
-                        searchInputPlaceholderText="Search for a disease"
-                        onChangeInput={ (text)=> console.log(text)}
-                        altFontFamily="ProximaNova-Light"
-                        tagRemoveIconColor="#8155BA"
-                        tagBorderColor="#8155BA"
-                        tagTextColor="#8155BA"
-                        textColor="#8155BA"
-                        selectedItemTextColor="#CCC"
-                        selectedItemIconColor="#CCC"
-                        itemTextColor="#000"
-                        displayKey="name"
-                        searchInputStyle={{ color: "#8155BA" }}
-                        styleListContainer = {{backgroundColor: "#FCF4E4" }}
-                        styleDropdownMenuSubsection = {{backgroundColor: "#100F4E4"}}
-                        searchInputStyle = {{backgroundColor: "#100F4E4"}}
-                        itemTextColor = "#8155BA"
-                        submitButtonColor="#8155BA"
-                        submitButtonText="Submit"
-                        /> 
-                        <View>
-                            {selectedDiseases? multiSelect.getSelectedItemsExt(selectedDiseases): null}
-                        </View>
-                    </View>*/}
-                    <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                        <View style={styles.buttonView}>
-                            <Button  
-                                title='Register'
-                                color= '#8155BA'
-                                onPress={()=> ValidateAndSend()}
-                                // disabled={!validAll}
-                            />
-                            <Button  
-                                title='Back'
-                                color= '#8155BA'
-                                onPress={()=> console.log("PressedBack!")}
-                                // disabled={!validAll}
-                            />
-                        </View>
+                {/* <View style={{ flex: 1 }}>
+                    <MultiSelect
+                    hideTags
+                    hideDropdown
+                    items={diseaseList}
+                    uniqueKey="id"
+                    ref={(component) =>  setMultiSelect(component)}
+                    onSelectedItemsChange={ items =>  setSelectedDiseases(items)}
+                    selectedItems={selectedDiseases}
+                    selectText="Diesease channels you want to join"
+                    searchInputPlaceholderText="Search for a disease"
+                    onChangeInput={ (text)=> console.log(text)}
+                    altFontFamily="ProximaNova-Light"
+                    tagRemoveIconColor="#8155BA"
+                    tagBorderColor="#8155BA"
+                    tagTextColor="#8155BA"
+                    textColor="#8155BA"
+                    selectedItemTextColor="#CCC"
+                    selectedItemIconColor="#CCC"
+                    itemTextColor="#000"
+                    displayKey="name"
+                    searchInputStyle={{ color: "#8155BA" }}
+                    styleListContainer = {{backgroundColor: "#FCF4E4" }}
+                    styleDropdownMenuSubsection = {{backgroundColor: "#100F4E4"}}
+                    searchInputStyle = {{backgroundColor: "#100F4E4"}}
+                    itemTextColor = "#8155BA"
+                    submitButtonColor="#8155BA"
+                    submitButtonText="Submit"
+                    /> 
+                    <View>
+                        {selectedDiseases? multiSelect.getSelectedItemsExt(selectedDiseases): null}
                     </View>
-                </ImageBackground>
+                </View>*/}
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={styles.buttonView}>
+                        <Button  
+                            title='Register'
+                            color= '#8155BA'
+                            onPress={()=> ValidateAndSend()}
+                            // disabled={!validAll}
+                        />
+                    </View>
+                </View>
             </ScrollView>
-        </View>
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     image: {
         flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
+        // resizeMode: "cover",
+        width: '100%',
+        height: '100%',
+        // justifyContent: "center",
         // alignSelf: 'stretch',
         // width: null,
       },
