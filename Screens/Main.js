@@ -56,9 +56,6 @@ function Main({ navigation }) {
         })
       })
     }
-
-    // setUser(GetInfo('login/profile', id))
-    // setName(navigation.state.prams.name)
     
   }, [])
   

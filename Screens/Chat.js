@@ -3,7 +3,7 @@ import {Text, Button ,ActivityIndicator} from 'react-native'
 import { GiftedChat, Bubble, Send, InputToolbar, Composer } from 'react-native-gifted-chat';
 import Fire from './Utils/Fire';
 // import firebase from 'firebase';
-import PushNotification from 'react-native-push-notification';
+// import PushNotification from 'react-native-push-notification';
 import API from './Utils/APICalls'
 import Modal from './Utils/modalScreen'
 
@@ -12,28 +12,7 @@ GiftedChat.renderLoading=true
 import {  StyleSheet ,View, ImageBackground} from 'react-native';
 
 export default class Chat extends Component{
-  
-  static navigationOptions = ({ navigation, route}) => {  
-    return {
-        title: 'route.params.channel_name',  
-        headerStyle: {  
-                backgroundColor: '#FCF4E4',  
-        },  
-        headerTitleStyle: {  
-              fontWeight: 'bold',
-              color: "#8155BA"  
-        },
-        // headerTintColor: '#fff',
-        
-        headerRight: (
-          <Button
-            onPress={() => alert('This is a button!')}
-            title="Info"
-            color="#fff"
-          />
-        ),
-    };  
-  };  
+
 
 
   state = {
@@ -45,48 +24,47 @@ export default class Chat extends Component{
   };
   constructor(props){
     super(props)
-    PushNotification.configure({
-      onRegister: function (token) {
-        console.log("TOKEN:", token);
-      },
-      onNotification: function (notification) {
-        console.log("NOTIFICATION:", notification);
-      },
-      permissions: {
-        alert: true,
-        badge: true,
-        sound: true,
-      },
-      popInitialNotification: true,
-      requestPermissions: true,
-    });
+    // PushNotification.configure({
+    //   onRegister: function (token) {
+    //     console.log("TOKEN:", token);
+    //   },
+    //   onNotification: function (notification) {
+    //     console.log("NOTIFICATION:", notification);
+    //   },
+    //   permissions: {
+    //     alert: true,
+    //     badge: true,
+    //     sound: true,
+    //   },
+    //   popInitialNotification: true,
+    //   requestPermissions: true,
+    // });
     this.LeaveChannel = this.LeaveChannel.bind(this)
   }
 
-  testPush=()=>{
-    PushNotification.localNotification({
-      title: "My Notification Title", // (optional)
-      message: "My Notification Message", // (required)
-    });
-  }
+  // testPush=()=>{
+  //   PushNotification.localNotification({
+  //     title: "My Notification Title", // (optional)
+  //     message: "My Notification Message", // (required)
+  //   });
+  // }
 
   componentDidMount() {  /// this compent will fetch all prevoius messages from chat
 
     GiftedChat.renderLoading=true
     console.log("Class:" ,this.props.navigation)
     console.log("Class:" ,this.props.route.params)
-
     this.state.database=this.props.route.params.channel_name
     this.state.unique_id =this.props.route.params.id
+
     
-    // Fire.shared.select_data_base(this.database)
-    Fire.shared.select_data_base('messages_1_1')
+    Fire.shared.select_data_base(this.state.database ,this.state.unique_id)
+    // Fire.shared.select_data_base('messages_1_1',this.state.unique_id)
     
     Fire.shared.on(message =>this.setState(previousState => ({
-      ...previousState,
       messages: GiftedChat.append(previousState.messages, message),
       loading : false
-    })),this.testPush());
+    })));
   
   }
 
@@ -163,7 +141,6 @@ export default class Chat extends Component{
     return (
       <>
       <View style={styles.buttonView}>
-        <Button title='press ma' onPress={()=>this.testPush() } color="#8155BA"/>
         <Button title='Leave Channel' onPress={() => this.LeaveChannel()} />
       </View>
       <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
@@ -181,6 +158,7 @@ export default class Chat extends Component{
         // renderInputToolbar={this.renderInputToolbar}
         renderInputToolbar={this.renderInputToolbar}
         user={ {name:this.props.route.params.name , _id:this.props.route.params.id, avatar: this.props.route.params.url} }  //change this line        
+        // user={ {name:this.props.route.params.name , _id:'321', avatar: this.props.route.params.url} }  //change this line        
       />
       </ImageBackground>
       </>

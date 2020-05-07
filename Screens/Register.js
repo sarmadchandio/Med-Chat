@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {View, Text, Button, StyleSheet, Image, ImageBackground, ScrollView} from 'react-native'
+import {View, Text, Button, StyleSheet, Image, ImageBackground, ScrollView, Alert} from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 import ImagePicker from 'react-native-image-picker';
 import CheckBox from '@react-native-community/checkbox';
@@ -20,7 +20,7 @@ function Register({ navigation }){
     const [selectedDiseases, setSelectedDiseases] = useState('')    
     // Component to show selected diseases on the screen --> docs suggested to make it
     const [multiSelect, setMultiSelect] = useState('')
-    const [pic, setPic] = useState(false) // picture val
+    const [pic, setPic] = useState(null) // picture val
     const [progress, setProgress] = useState(0) // Progress for image upload
     const [imageUploading, setImageUploading] = useState(false) // boolean to diable the button
     // boolean array ==> fName, lName, uName, password, phone, email, bday, isDoctor, isPatient, isNeither
@@ -58,18 +58,13 @@ function Register({ navigation }){
                 inputChecks = false;
             }
         })
+        // The user is neither patient nor a doctor. Input check fails
+        if(!userType[0] && !userType[1]){
+            inputChecks = false
+        }
         console.log("inputChecks: ", inputChecks)
         let doctorDiseases = []
         let patientDisease = []
-
-        // let diseases = selectedDiseases.map(val => {
-        //     return diseaseList[val].name
-        // })
-        // console.log(diseases)
-        // if(userType[0]) //Doctor
-        //     doctorDiseases = diseases
-        // else if (userType[1])
-        //     patientDisease = diseases
 
         
         // if all of the conditions are fulfilled we can send the packet to the server
@@ -84,7 +79,7 @@ function Register({ navigation }){
                 "phoneNumber" : profile[4],
                 "email" : profile[5],
                 "birthday" : profile[6],
-                "profilePicture" : pic.url,
+                // "profilePicture" : pic.url,
                 "diseaseHistory" : {
                     "isDoctor" : userType[0],
                     "isPatient" : userType[1],
@@ -92,6 +87,9 @@ function Register({ navigation }){
                     "patientDisease" : patientDisease
                 }
             }
+            packet.profilePicture = null
+            if(pic)
+                packet.profilePicture = pic.url
             console.log("packet ready for sending", packet)
             // return;
             // "profilePicture": "content://com.miui.gallery.open/raw/%2Fstorage%2Femulated%2F0%2FDCIM%2FScreenshots%2FScreenshot_2020-05-05-20-45-34-712_com.medchat.jpg"
@@ -114,6 +112,8 @@ function Register({ navigation }){
                 console.log("RegisterApi Err", err)
                 alert(err)
             }
+        }else{
+            alert("Please Enter Valid Info")
         }
         
     }

@@ -1,11 +1,39 @@
 import firebase from './firebase_auth'
-class Fire {
-  constructor() {
+import { Component } from 'react';
+import PushNotification from 'react-native-push-notification';
+
+class Fire{
+  constructor(props) {
     this.observeAuth();
-    this.DataBase= ''
+    this.DataBase= '';
+    this.user=''
+
+    PushNotification.configure({
+      onRegister: function (token) {
+        // console.log("TOKEN:", token);
+      },
+      onNotification: function (notification) {
+        // console.log("NOTIFICATION:", notification);
+      },
+      permissions: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
+      popInitialNotification: true,
+      requestPermissions: true,
+    });
+
+
   }
   observeAuth = () =>{
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+  }
+  testPush=()=>{
+    PushNotification.localNotification({
+      title: "Med Chat", // (optional)
+      message: "New Message", // (required)
+    });
   }
 
   onAuthStateChanged = user => {
@@ -30,13 +58,13 @@ class Fire {
     return message;
   };
 
-  select_data_base= text=>{
-    this.DataBase=text
+  select_data_base= (text,user)=>{
+    this.DataBase=text;
+    this.user=user;
   }
 
   on = callback =>{
     this.ref_database().on('child_added', snapshot => callback(this.parse(snapshot)));
-    console.log('message sent22')
   }
   
 
@@ -52,7 +80,17 @@ class Fire {
         user,
         timestamp: this.timestamp,
       };
-      this.append(message);
+
+      if(this.user ===user._id){
+        this.append(message);
+      }else{
+        this.append(message);
+        this.testPush();
+      }
+      // console.log(this.user)
+      console.log(this.database)
+      // console.log(user._id)
+      // this.testPush();
     }
   };
   
@@ -64,3 +102,6 @@ class Fire {
 }
 Fire.shared = new Fire();
 export default Fire;
+
+
+

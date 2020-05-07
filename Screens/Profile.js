@@ -5,7 +5,6 @@ import { useFocusEffect } from '@react-navigation/native'
 import GetUserInfo from './Utils/APICalls'; // This API call is used fetch data from backend
 
 function Profile({route, navigation}){
-    const [defaultUser, setDefaultUser] = useState()
     const [user, setUser] = useState()
     const [userChannels, setUserChannels] = useState([])
     const [initializing, setInitializing] = useState(true)
@@ -22,7 +21,7 @@ function Profile({route, navigation}){
     // The profile will be setup in background upon Login.
     useEffect(()=>{
         let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
-        GetUserInfo('login/profile', id).then(resp => {setDefaultUser(resp);setUser(resp); setInitializing(false)})
+        GetUserInfo('login/profile', id).then(resp => {setUser(resp); setInitializing(false)})
         GetUserInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
         console.log("Profile Called")
     }, [])
@@ -32,20 +31,22 @@ function Profile({route, navigation}){
     // Activity Indicator will be rendered
     if(initializing){
         return (
-          <View style={[styles.initial, {alignItems:'center'}]}>
-            <ActivityIndicator size={100}/>
+            <ImageBackground
+            source={require('../imgs/login_background.jpeg')}
+            style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+            <ActivityIndicator size={90}/>
             <Text>Setting Up Profile...</Text>
-          </View>
+          </ImageBackground>
         );
       }
 
     return(
         <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
             <ScrollView>
-                <View style={{alignContent :'center'}}>
+                <View style={{alignItems :'center'}}>
                     <Image
                         style={styles.displayprofile}
-                        source={user?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
+                        source={user.profilePicture?{uri:user.profilePicture}:require('../imgs/empty_profile.png')}
                     />
                 </View>
                 <Text style={styles.name}>{user.firstName} {user.lastName}</Text>
@@ -96,12 +97,12 @@ const styles = StyleSheet.create({
     },
     displayprofile: {
         // borderColor: mainColor,
-        borderRadius: 85,
+        borderRadius: 75,
         borderWidth: 3,
         height: 150,
         marginBottom: 15,
+        marginTop:15,
         width: 150,
-        marginLeft:100
         
       },
     name: {

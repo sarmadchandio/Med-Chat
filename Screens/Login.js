@@ -11,9 +11,9 @@ function Login({ navigation }){
     const [phoneNumber ,setPhoneNumber]=useState('+16505551234')  //Phone Number +1 650-555-1234
     const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
     const [code, setCode] = useState('123456'); // confirmation code (phone) from the user
-    const [userName, setUserName] = useState('dsaa')
+    const [userName, setUserName] = useState('dsab')
     const [password, setPassword] = useState('12345')
-    const [initializing, setInitializing] = useState(true)
+    const [initializing, setInitializing] = useState(false)
     const [loginCanceled, setLoginCanceled] = useState(false)
 
     // Method to fetch our own apis
@@ -103,16 +103,15 @@ function Login({ navigation }){
                 <View style={{marginTop:10, overflow:'hidden', borderRadius:50,}}>
                     <Button 
                         title='Cancel Login'
-                        onPress={()=>{setInitializing(false); setLoginCanceled(false)}} 
+                        onPress={()=>{setInitializing(false); setLoginCanceled(true)}} 
                         color="#8155BA"
                     />
                 </View>
-                
             </ImageBackground>
         )
     }
 
-    // Assuming the user is signed out, if there is no display name...?
+    // The is the display for Login Page
     if (!confirm && !initializing){
         return(
             <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
@@ -144,8 +143,6 @@ function Login({ navigation }){
                             color="#8155BA"
                         />
                     </View>
-                    {/* <View style={styles.separator} />
-                    <View style={styles.separator} /> */}
                     <View style={styles.buttonview}>
                         <Button 
                             title="Register" 
@@ -168,7 +165,7 @@ function Login({ navigation }){
                     </View>
                 </ScrollView>
             </ImageBackground>
-            
+
         );
     }
     // Only phone is authentic 
@@ -209,7 +206,6 @@ function Login({ navigation }){
                 
             </ImageBackground>
         
-        //  </ImageBackground>
     )
 }
 
