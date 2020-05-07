@@ -20,8 +20,10 @@ function Main({ navigation }) {
 
   useFocusEffect( 
     React.useCallback(() => {
+        console.log("Getting user channels")
         let id = navigation.dangerouslyGetParent().dangerouslyGetState().routes[1].params
         GetInfo('channels/getUserChannels', id).then(resp => {setUserChannels(resp)})
+        GetInfo('channels/getChannels', id).then(resp => {setChannels(resp)})
     }, [])
   );
 
@@ -89,11 +91,19 @@ function Main({ navigation }) {
           {text:'Join Now!', onPress:()=> {
             console.log("ID: ", uniqueId.id)
             console.log("Channel: ", item)
+            // We need to add user to the channel
             GetInfo('channels/addUserToChannel', {'userId': uniqueId.id, 'channelName': item}).then(resp=>{
               GetInfo('channels/getUserChannels', uniqueId).then(response => {
                   setUserChannels(response)
               })
+              // now we need to update channel count as well
+              .then(()=> {
+                GetInfo('channels/getChannels', uniqueId).then( newChannels => {
+                  setChannels(newChannels)
+                })
+              })
             })
+
           }},
         ],
         {cancelable:true}

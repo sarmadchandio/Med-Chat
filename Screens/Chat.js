@@ -2,10 +2,7 @@ import React, { useState, useEffect, Component,setState } from 'react';
 import {Text, Button ,ActivityIndicator} from 'react-native'
 import { GiftedChat, Bubble, Send, InputToolbar, Composer } from 'react-native-gifted-chat';
 import Fire from './Utils/Fire';
-// import firebase from 'firebase';
-// import PushNotification from 'react-native-push-notification';
 import API from './Utils/APICalls'
-import Modal from './Utils/modalScreen'
 
 GiftedChat.renderLoading=true
 
@@ -141,7 +138,11 @@ export default class Chat extends Component{
     return (
       <>
       <View style={styles.buttonView}>
-        <Button title='Leave Channel' onPress={() => this.LeaveChannel()} />
+        <Button 
+          title='Leave Channel' 
+          onPress={() => this.LeaveChannel()} 
+          color='#8155BA'
+        />
       </View>
       <ImageBackground source={require('../imgs/login_background.jpeg')} style={styles.image}>
       <GiftedChat

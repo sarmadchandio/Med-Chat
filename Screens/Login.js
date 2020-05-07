@@ -3,16 +3,17 @@ import {View, Text, Button, ScrollView, Image, ImageBackground, StyleSheet, Aler
 import { TextInput } from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
 import CodeInput from 'react-native-code-input';
+import { set } from 'react-native-reanimated';
 
 
 // navigation prop is passed down to all our screen components frfom the stack container
 function Login({ navigation }){
     // If null, no SMS has been sent
-    const [phoneNumber ,setPhoneNumber]=useState('+16505551234')  //Phone Number +1 650-555-1234
+    const [phoneNumber ,setPhoneNumber]=useState()  //Phone Number +1 650-555-1234
     const [confirm, setConfirm] = useState(null);   //onfirms the phone  for phone Number
-    const [code, setCode] = useState('123456'); // confirmation code (phone) from the user
-    const [userName, setUserName] = useState('dsab')
-    const [password, setPassword] = useState('12345')
+    const [code, setCode] = useState(); // confirmation code (phone) from the user '123456'
+    const [userName, setUserName] = useState() // 'dsab'
+    const [password, setPassword] = useState() // '12345'
     const [initializing, setInitializing] = useState(false)
     const [loginCanceled, setLoginCanceled] = useState(false)
 
@@ -57,9 +58,11 @@ function Login({ navigation }){
     // Used for PhoneAuth
     async function signInWithPhoneNumber(phoneNumber){
         try{
+            setInitializing(true)
             const verification = await auth().signInWithPhoneNumber(phoneNumber);
             console.log(verification)
             setConfirm(verification);
+            setInitializing(false)
         }catch(err){
             let error = err
             console.log(err.Error)
@@ -74,6 +77,7 @@ function Login({ navigation }){
             const conf =  await confirm.confirm(code);
             //Phone Number Verified so a request can be sent to the server to fetch data
             if (conf){
+                setConfirm(false)
                 await LoginMongoDB('phone','user','pass', phoneNumber)
                 // setInitializing(false)
                 // The user is signed in after verfying the confirm code.
@@ -99,11 +103,12 @@ function Login({ navigation }){
                 style={{flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#EED6D3'}}
             >
                 <ActivityIndicator size={90} />
-                <Text>Logging In...</Text>
+                {confirm? <Text>Sending SMS...</Text>: <Text>Logging In...</Text>}
+                
                 <View style={{marginTop:10, overflow:'hidden', borderRadius:50,}}>
                     <Button 
-                        title='Cancel Login'
-                        onPress={()=>{setInitializing(false); setLoginCanceled(true)}} 
+                        title={confirm?'Back': 'Cancel Login'}
+                        onPress={()=>{setInitializing(false); setLoginCanceled(true); setConfirm(false)}} 
                         color="#8155BA"
                     />
                 </View>
@@ -134,7 +139,7 @@ function Login({ navigation }){
                         onChangeText={(text) => setPassword(text)}
                         value={password}
                         style={styles.inputBox}
-                        />
+                    />
                     {/* <View style={styles.separator} />  */}
                     <View style={styles.buttonview}>       
                         <Button 

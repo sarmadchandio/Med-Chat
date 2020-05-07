@@ -12,8 +12,8 @@ import diseaseList from './Utils/INITIALIZE_DISEASES.js'
 
 function Register({ navigation }){
     // String array ==> fName, lName, uName, password, phone, email, bday --> 
-    // const [profile, setProfile] = useState(['','','','','','','',])
-    const [profile, setProfile] = useState(['fane','asd','dsa','12345','+923458762331','gig@gmal.com','1992-11-11',])
+    const [profile, setProfile] = useState(['','','','','','','',])
+    // const [profile, setProfile] = useState(['fane','asd','dsa','12345','+923458762331','gig@gmal.com','1992-11-11',])
     // Updates the checkboxes of UserType ==> Doctor or patient
     const [userType, setUserType] = useState([false,false]) 
     // A list for selected diseases (index numbers of diseases)
@@ -65,7 +65,6 @@ function Register({ navigation }){
         console.log("inputChecks: ", inputChecks)
         let doctorDiseases = []
         let patientDisease = []
-
         
         // if all of the conditions are fulfilled we can send the packet to the server
         if(inputChecks){
@@ -238,7 +237,6 @@ function Register({ navigation }){
                             style={{width:100, height:100, borderRadius:100, resizeMode:'cover'}} 
                             source={pic? {uri : pic.uri} : require('../imgs/empty_profile.png')}
                         />
-                        
                     }
                     
                     

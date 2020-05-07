@@ -46,7 +46,7 @@ function Profile({route, navigation}){
                 <View style={{alignItems :'center'}}>
                     <Image
                         style={styles.displayprofile}
-                        source={user.profilePicture?{uri:user.profilePicture}:require('../imgs/empty_profile.png')}
+                        source={user.profilePicture?{uri:user.profilePicture} :require('../imgs/empty_profile.png')}
                     />
                 </View>
                 <Text style={styles.name}>{user.firstName} {user.lastName}</Text>

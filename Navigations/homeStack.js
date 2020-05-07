@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { Button } from 'react-native'
 
 import Login from '../Screens/Login';
 import Register from '../Screens/Register';
@@ -9,7 +10,9 @@ import Main from '../Screens/Main';
 import Chat from '../Screens/Chat';
 import Profile from '../Screens/Profile';
 import OtherProfile from '../Screens/OtherProfile';
-import Channel_Profile from '../Screens/Channel_profile'
+import ChannelProfile from '../Screens/ChannelProfile'
+import LaunchScreen from '../Screens/LaunchScreen'
+import HomeScreen from '../Screens/HomeScreen'
 
 // navigation prop is passed down to all our screen components.
 const Tab = createMaterialTopTabNavigator();
@@ -47,12 +50,29 @@ function MyNavigator(){
                 }
               }}
             >
+                {/* <HomeStack.Screen name='Home' 
+                    component={HomeScreen} 
+                    options={{title:'Welcome To MedChat'}} 
+                /> */}
                 <HomeStack.Screen name='Login' component={Login} />
                 <HomeStack.Screen name='Main' component={MyTabs} options={{title: 'Sign Out'}}/>
                 <HomeStack.Screen name='Register' component={Register} />
-                <HomeStack.Screen name='Chat' component={Chat} />
+                <HomeStack.Screen 
+                    name='Chat' 
+                    component={Chat}
+                    options={({ route }) => ({ 
+                        title: route.params.channel_name,
+                        headerRight: () => (
+                            <Button 
+                                onPress={() => alert('Naviagate here to channel profile')} 
+                                title="Info"
+                                color="#8155BA"
+                            />
+                        ) 
+                   })}
+                />
                 <HomeStack.Screen name='OtherProfile' component={OtherProfile} />
-                <HomeStack.Screen name='Channel_Profile' component={Channel_Profile} />
+                <HomeStack.Screen name='ChannelProfile' component={ChannelProfile} />
             </HomeStack.Navigator>
         </NavigationContainer>
         
