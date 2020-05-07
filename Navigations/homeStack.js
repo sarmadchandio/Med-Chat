@@ -8,6 +8,7 @@ import Register from '../Screens/Register';
 import Main from '../Screens/Main';
 import Chat from '../Screens/Chat';
 import Profile from '../Screens/Profile';
+import OtherProfile from '../Screens/OtherProfile';
 import Channel_Profile from '../Screens/Channel_profile'
 
 // navigation prop is passed down to all our screen components.
@@ -50,6 +51,7 @@ function MyNavigator(){
                 <HomeStack.Screen name='Main' component={MyTabs} />
                 <HomeStack.Screen name='Register' component={Register} />
                 <HomeStack.Screen name='Chat' component={Chat} />
+                <HomeStack.Screen name='OtherProfile' component={OtherProfile} />
                 <HomeStack.Screen name='Channel_Profile' component={Channel_Profile} />
             </HomeStack.Navigator>
         </NavigationContainer>

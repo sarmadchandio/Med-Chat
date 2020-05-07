@@ -5,6 +5,7 @@ import Fire from './Utils/Fire';
 // import firebase from 'firebase';
 import PushNotification from 'react-native-push-notification';
 import API from './Utils/APICalls'
+import Modal from './Utils/modalScreen'
 
 GiftedChat.renderLoading=true
 
@@ -72,10 +73,10 @@ export default class Chat extends Component{
   componentDidMount() {  /// this compent will fetch all prevoius messages from chat
 
     GiftedChat.renderLoading=true
-    console.log(this.props.navigation)
-    console.log(this.props.route)
+    console.log("Class:" ,this.props.navigation)
+    console.log("Class:" ,this.props.route.params)
+
     this.state.database=this.props.route.params.channel_name
-    this.state.user=this.props.route.params.user
     this.state.unique_id =this.props.route.params.id
     
     // Fire.shared.select_data_base(this.database)
@@ -138,13 +139,13 @@ export default class Chat extends Component{
     );
 }
   LeaveChannel(){
-    console.log("ID LeaveChannel: ", this.props.route.params.id)
-    console.log(this.props.route.params.channel_name)
+    // console.log("ID LeaveChannel: ", this.props.route.params.id)
+    // console.log(this.props.route.params.channel_name)
     let packet = {
       'userId' : this.props.route.params.id,
       'channelName' : this.props.route.params.channel_name
     }
-    console.log(packet)
+    // console.log(packet)
     // this.props.navigation.goBack()
     API('channels/leaveChannel', packet).then(() => this.props.navigation.goBack())
   }
@@ -170,7 +171,7 @@ export default class Chat extends Component{
         renderLoading={this.renderLoading}
         messages={this.state.messages}
         onSend={Fire.shared.send}
-        onPressAvatar={(user)=>this.props.navigation.navigate('Profile',{us:user})}
+        onPressAvatar={user=>this.props.navigation.navigate('OtherProfile',{user:user._id})}
         isTyping
         renderTime
         showUserAvatar
@@ -179,7 +180,7 @@ export default class Chat extends Component{
         renderSend={this.renderSend}
         // renderInputToolbar={this.renderInputToolbar}
         renderInputToolbar={this.renderInputToolbar}
-        user={ {name:'dd1',_id:'testing_1',avatar: 'https://placeimg.com/140/140/any'} }  //change this line        
+        user={ {name:this.props.route.params.name , _id:this.props.route.params.id, avatar: 'https://placeimg.com/140/140/any'} }  //change this line        
       />
       </ImageBackground>
       </>
