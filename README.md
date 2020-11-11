@@ -24,4 +24,6 @@ Fix:
 Goto node_modules/react-native-progress/ and
 comment out everything except: export { default as Circle } from './Circle';
 
-After these changes you are good to go
+After these changes you need to compile the apk.
+
+[Docs and Demo](https://drive.google.com/drive/folders/1QSg2K3nkrKAPN6dhMzJUDbKBl1ZlInly)
